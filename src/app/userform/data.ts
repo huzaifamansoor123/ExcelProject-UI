@@ -1,0 +1,31 @@
+export class Data {
+  name: string;
+  email1: string;
+  email2: string;
+  phoneNo1: string;
+  phoneNo2: string;
+  company: string;
+  nationality: string;
+  countryOfResidence: string;
+  status1: string;
+  status2: string;
+  status3: string;
+  dateOfFC: string;
+  FirstPointOfContact: string;
+  details: string;
+  oEmbassyGardens: string;
+  oTheGallery: string;
+  oTheResidence: string;
+  oCliftonPlace: string;
+  oCliftonCourt: string;
+  oKaiVillas: string;
+  oAddyVillas: string;
+  total: number;
+  tEmbassyGardens: string;
+  tTheGallery: string;
+  tTheResidence: string;
+  tCliftonPlace: string;
+  tCliftonCourt: string;
+  tKaiVillas: string;
+  tAddyVillas: string;
+}
