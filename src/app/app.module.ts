@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { ScearchTableComponent } from './scearch-table/scearch-table.component';
 import { DropdownModule } from 'primeng/dropdown';
 
-
-
 import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -23,15 +21,12 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {CalendarModule} from 'primeng/calendar';
-
-
+import { CalendarModule } from 'primeng/calendar';
+import { UserformComponent } from './userform/userform.component';
+import { UsertableComponent } from './usertable/usertable.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ScearchTableComponent
-  ],
+  declarations: [AppComponent, ScearchTableComponent, UserformComponent, UsertableComponent],
   imports: [
     BrowserModule,
     CalendarModule,
@@ -48,13 +43,11 @@ import {CalendarModule} from 'primeng/calendar';
     DialogModule,
     InputTextModule,
     PanelModule,
-    MessageService,
     TabMenuModule,
     TableModule,
     CardModule
-    
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
