@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScearchTableComponent } from './scearch-table/scearch-table.component';
 
-
-
 import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -30,22 +28,20 @@ import { AuthGuard } from './auth.guard';
 import {DropdownModule} from 'primeng/dropdown';
 import { UserListComponent } from './user-list/user-list.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-
-
-
-
+// import { CalendarModule } from 'primeng/calendar';
+import { UserformComponent } from './userform/userform.component';
+import { UsertableComponent } from './usertable/usertable.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ScearchTableComponent,
+  declarations: [AppComponent, ScearchTableComponent, UserformComponent, UsertableComponent,
     LoginComponent,
     UserFormComponent,
     SidenavComponent,
     UserListComponent
   ],
   imports: [
+    
     BrowserModule,
     CalendarModule,
     ReactiveFormsModule,
@@ -68,7 +64,11 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     
   ],
   providers: [MessageService,
-    AuthGuard],
+    AuthGuard,
+    TabMenuModule,
+    TableModule,
+    CardModule
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
