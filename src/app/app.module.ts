@@ -48,13 +48,12 @@ import {CalendarModule} from 'primeng/calendar';
     DialogModule,
     InputTextModule,
     PanelModule,
-    MessageService,
     TabMenuModule,
     TableModule,
     CardModule
     
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
