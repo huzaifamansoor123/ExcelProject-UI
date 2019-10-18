@@ -6,23 +6,36 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserformComponent } from './userform/userform.component';
 import { UsertableComponent } from './usertable/usertable.component';
+import { AuthGuard } from './auth.guard';
 
 
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {
-    path: 'userform',
+    path: 'userManagementform',
+    canActivate: [AuthGuard],
+
     component: UserFormComponent
   },
   {
     path:'user-List',
+    canActivate: [AuthGuard],
+
     component:UserListComponent
   },
-  {path:"scearchtable",component:ScearchTableComponent},
-  { path: 'scearchtable', component: ScearchTableComponent },
-  { path: 'form', component: UserformComponent },
-  { path: 'usertable', component: UsertableComponent }
+  {path:"scearchtable",
+  canActivate: [AuthGuard],
+  component:ScearchTableComponent},
+  { path: 'scearchtable',
+  canActivate: [AuthGuard],
+  component: ScearchTableComponent },
+  { path: 'form',
+  canActivate: [AuthGuard],
+  component: UserformComponent },
+  { path: 'usertable',
+  canActivate: [AuthGuard],
+  component: UsertableComponent }
 
 ];
 

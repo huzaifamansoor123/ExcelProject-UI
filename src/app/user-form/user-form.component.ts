@@ -54,4 +54,8 @@ export class UserFormComponent implements OnInit {
 
   }
 
+  routeToUserList(){
+    this.router.navigate(['user-List'])
+  }
+
 }

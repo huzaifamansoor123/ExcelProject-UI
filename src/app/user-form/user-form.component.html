@@ -3,7 +3,20 @@
 <br>
 <br>
 <br>
-<br>
+
+<div class="ui-g-12">
+  <div class="ui-g-offset-9 ui-lg-2 ui-md-2 ui-sm-12">
+    <button
+      pButton
+      type="button"
+      style="width:100%;margin-left:10% ;background-color: rgb(22, 92, 124)"
+      label="See User Table"
+      (click)="routeToUserList();"
+    ></button>
+  </div>
+</div>
+
+<!-- <div class="container"></div> -->
 <div style="width: 100%" class="ui-g">
     <div class="ui-md-12 ui-lg-9 ui-sm-12">
             <p-card header="" [style]="{  width: '90%',
@@ -24,16 +37,13 @@
               <div class="ui-md-2 ui-lg-2"></div>
               <div class="ui-md-12 ui-lg-8 ui-sm-12">
                 <div class="ui-inputgroup">
-                  <span
-                    class="ui-inputgroup-addon"
-                    style="width: 50%;font-size:15px;"
-                    >Name: <i style="color: red">*</i></span
-                  >
+                  
                   <input
                     type="text"
                     required
                     style="width: 100%"
                     name="name"
+                    placeholder="Enter Name"
                     [(ngModel)]="userObj.name"
                     pInputText
                   />
@@ -45,17 +55,14 @@
                     <div class="ui-md-2 ui-lg-2"></div>
                     <div class="ui-md-12 ui-lg-8 ui-sm-12">
                       <div class="ui-inputgroup">
-                  <span
-                    class="ui-inputgroup-addon"
-                    style="width:50%;font-size:15px;"
-                    >Email: <i style="color: red">*</i></span
-                  >
+                 
                   <!-- <input type="text" required [(ngModel)]="test.details" name="details" pInputText> -->
                   <input
                     type="text"
                     required
                     style="width: 100%"
                     name="email"
+                    placeholder="Enter Email"
                     [(ngModel)]="userObj.email"
                     pInputText
                   />
@@ -66,16 +73,13 @@
                     <div class="ui-md-2 ui-lg-2"></div>
                     <div class="ui-md-12 ui-lg-8 ui-sm-12">
                         <div class="ui-inputgroup">
-                    <span
-                      class="ui-inputgroup-addon"
-                      style="width: 50%;font-size:15px;"
-                      >password: </span
-                    >
+                   
                     <input
-                      type="text"
+                      type="password"
                       style="width: 100%"
                       name="password"
                       required
+                      placeholder="Enter Password"
                       [(ngModel)]="userObj.password"
                       pInputText
                     />
@@ -87,11 +91,8 @@
                     <div class="ui-md-2 ui-lg-2"></div>
                     <div class="ui-md-12 ui-lg-8 ui-sm-12">
                           <div class="ui-inputgroup">
-                            <span
-                            class="ui-inputgroup-addon"
-                            style="width: 34%;font-size:15px;"
-                            > User Type: </span>
-                            <p-dropdown [options]="usertypes" required name="userType" [(ngModel)]="userObj.userType" [style]="{width:'450px'}" placeholder="Select user type">
+                           
+                            <p-dropdown [options]="usertypes" required name="userType" [(ngModel)]="userObj.userType" [style]="{width:'657px'}" placeholder="Select user type">
                                 </p-dropdown>
                                 </div>
                   </div>

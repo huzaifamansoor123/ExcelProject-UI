@@ -19,10 +19,23 @@ export class UserService {
   }
 
   public editUser(id,Obj): Observable<any>{
-    return this.http.put(environment.baseUrl+'token/update/'+id,Obj);
+    const headers = {
+      "Authorization":sessionStorage.getItem('token')
+    }
+    return this.http.put(environment.baseUrl+'token/update/'+id,Obj,{headers});
+
+  }
+
+  checkUserandPass(name: string, pwd: string):Observable <any> {
+    let user = {
+      username:name,
+      password:pwd
+    }
+    
+    return this.http.post(environment.baseUrl+"token/generate-token",user);
   }
 
   public deleteUser(id): Observable<any>{
-    return this.http.get(environment.baseUrl+'token/delete'+id);
+    return this.http.get(environment.baseUrl+'token/delete/'+id);
   }
 }

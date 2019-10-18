@@ -3,7 +3,18 @@
 <br />
 <br />
 <br />
-<br />
+<div class="ui-g-12">
+    <div class="ui-g-offset-9 ui-lg-2 ui-md-2 ui-sm-12">
+      <button
+        pButton
+        type="button"
+        style="width:100%;margin-left:10% ;background-color: rgb(22, 92, 124)"
+        label="Back"
+        (click)="routeToAddNewUser();"
+      ></button>
+    </div>
+  </div>
+  <div class="ui-g" style="width: 100%">
 <p-card header="" [style]="{  width: '90%',
 'font-size': '20px',
 'text-align': 'center',
@@ -96,4 +107,5 @@ color: 'green',
         </p-dialog>
     
 </p-card>
+</div>
 <p-toast></p-toast>

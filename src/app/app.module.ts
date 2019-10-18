@@ -17,20 +17,22 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 import { LoginComponent } from './login/login.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MenuItem, MessageService } from 'primeng/api';
-import { AuthGuard } from './auth.guard';
+
 import {DropdownModule} from 'primeng/dropdown';
 import { UserListComponent } from './user-list/user-list.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 // import { CalendarModule } from 'primeng/calendar';
 import { UserformComponent } from './userform/userform.component';
 import { UsertableComponent } from './usertable/usertable.component';
+import { NoopInterceptor } from './request.intercept';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -63,11 +65,17 @@ import { UsertableComponent } from './usertable/usertable.component';
     ProgressSpinnerModule
     
   ],
-  providers: [MessageService,
-    AuthGuard,
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NoopInterceptor,
+      multi: true
+    },
+    MessageService,
     TabMenuModule,
     TableModule,
-    CardModule
+    CardModule,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
