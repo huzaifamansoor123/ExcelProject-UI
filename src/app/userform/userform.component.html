@@ -1,0 +1,432 @@
+<div class="ui-g-8">
+  <p-toast></p-toast>
+  <div class="ui-lg-5 ui-md-5 ui-sm-12">
+    <button
+      pButton
+      type="button"
+      class="success"
+      style="width:45%;margin-left:10% "
+      label="Back"
+      [routerLink]="['/usertable']"
+    ></button>
+  </div>
+</div>
+
+<div class="ui-g-8 ui-fluid ">
+  <div class="ui-g-12 ui-md-12">
+    <div class="container">
+      <p-card
+        header="FORM"
+        [style]="{
+          width: '100%',
+          'margin-top': '5px !important',
+          color: '#007ad9',
+          'text-align': 'center',
+          height: '30% !important'
+        }"
+      >
+        <hr />
+        <form #myForm="ngForm">
+          <h2 style="margin-right: 85%;">Contact Details:</h2>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="name"
+                  name="name"
+                  [(ngModel)]="data.name"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="email Address 1"
+                  name="email"
+                  [(ngModel)]="data.email1"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="email Address 2"
+                  name="email2"
+                  [(ngModel)]="data.email2"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  pInputText
+                  placeholder="Phone number 1"
+                  name="phonenumber1"
+                  (keypress)="numberOnly($event)"
+                  [(ngModel)]="data.phoneNo1"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  pInputText
+                  placeholder="Phone number 2"
+                  name="phonenumber2"
+                  (keypress)="numberOnly($event)"
+                  [(ngModel)]="data.phoneNo2"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Company"
+                  name="company"
+                  [(ngModel)]="data.company"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Nationality"
+                  name="Nationality"
+                  [(ngModel)]="data.nationality"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Country of residence"
+                  name="countryOfResidence"
+                  [(ngModel)]="data.countryOfResidence"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+          <h2 style="margin-right: 92%;">Status:</h2>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Status 1"
+                  name="status1"
+                  [(ngModel)]="data.status1"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Status 2"
+                  name="status2"
+                  [(ngModel)]="data.status2"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Status 3"
+                  name="status3"
+                  [(ngModel)]="data.status3"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+          <h2 style="margin-right: 92%;">Source:</h2>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <p-calendar
+                  [ngStyle]="{ width: '100%' }"
+                  [(ngModel)]="data.dateOfFC"
+                  [monthNavigator]="true"
+                  [yearNavigator]="true"
+                  yearRange="1947:2090"
+                  name="dateOfFC"
+                  showButtonBar="true"
+                  dateFormat="dd/mm/yy"
+                  placeholder="Date of first Contact"
+                >
+                </p-calendar>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="First Point of Contact"
+                  name="FirstPointOfContact"
+                  [(ngModel)]="data.FirstPointOfContact"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Details"
+                  name="details"
+                  [(ngModel)]="data.details"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+
+          <h2 style="margin-right: 92%;">Owner:</h2>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Embassy Gardens"
+                  name="EmbassyGardens"
+                  [(ngModel)]="data.oEmbassyGardens"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="The Gallery"
+                  name="TheGallery"
+                  [(ngModel)]="data.oTheGallery"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="The Residence"
+                  name="TheResidence"
+                  [(ngModel)]="data.oTheResidence"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Clifton Place"
+                  name="CliftonPlace"
+                  [(ngModel)]="data.oCliftonPlace"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Clifton Court"
+                  name="Clifton Court"
+                  [(ngModel)]="data.oCliftonCourt"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Kai Villas"
+                  name="Kai Villas"
+                  [(ngModel)]="data.oKaiVillas"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Addy Villas"
+                  name="Addy Villas"
+                  [(ngModel)]="data.oAddyVillas"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  pInputText
+                  placeholder="Total"
+                  name="total"
+                  [(ngModel)]="data.total"
+                  (keypress)="numberOnly($event)"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+
+          <h2 style="margin-right: 92%;">Tenant:</h2>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Embassy Gardens"
+                  name="EmbassyGardens"
+                  [(ngModel)]="data.tEmbassyGardens"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="The Gallery"
+                  name="TheGallery"
+                  [(ngModel)]="data.tTheGallery"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="The Residence"
+                  name="TheResidence"
+                  [(ngModel)]="data.tTheResidence"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Clifton Place"
+                  name="CliftonPlace"
+                  [(ngModel)]="data.tCliftonPlace"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Clifton Court"
+                  name="Clifton Court"
+                  [(ngModel)]="data.tCliftonCourt"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Kai Villas"
+                  name="Kai Villas"
+                  [(ngModel)]="data.tKaiVillas"
+                  ngModel
+                />
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Addy Villas"
+                  name="Addy Villas"
+                  [(ngModel)]="data.tAddyVillas"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+          <div class="ui-lg-12">
+            <div class="ui-inputgroup">
+              <button
+                pButton
+                type="button"
+                class="success"
+                label="Submit"
+                style="width: 100%;"
+                (click)="save(); myForm.resetForm()"
+              ></button>
+            </div>
+          </div>
+        </form>
+      </p-card>
+    </div>
+  </div>
+</div>
