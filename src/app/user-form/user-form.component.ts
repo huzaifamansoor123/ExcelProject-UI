@@ -14,9 +14,11 @@ export class UserFormComponent implements OnInit {
 
   usertypes: { label: string; value: string; }[];
   userObj: User = new User();
+  userTypeCurrent: string;
   constructor(private userService: UserService,private messageService: MessageService,private router : Router) { }
 
   ngOnInit() {
+    this.checkUserType();
     this.usertypes=[
       {label:"ADMIN", value:"ADMIN"},
       {label:"USER",value:"USER"}
@@ -57,5 +59,9 @@ export class UserFormComponent implements OnInit {
   routeToUserList(){
     this.router.navigate(['user-List'])
   }
+
+  checkUserType(){
+    this.userTypeCurrent=sessionStorage.getItem("userType"); 
+ }
 
 }

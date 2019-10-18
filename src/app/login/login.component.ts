@@ -22,24 +22,32 @@ export class LoginComponent implements OnInit {
     // var output = this.service.checkUserandPass(uname, p);
     this.service.checkUserandPass(uname, p).subscribe(
       res => {
-        console.log('toker', res);
+        if(res.status=="200"){
+          console.log('toker', res);
 
-        sessionStorage.setItem('token', res.result.token);
-        var username = sessionStorage.setItem('username', res.result.username);
-        var userType = sessionStorage.setItem('userType', res.result.userType);
+          sessionStorage.setItem('token', res.result.token);
+          sessionStorage.setItem('email',res.result.email);
+          sessionStorage.setItem('username', res.result.username);
+          sessionStorage.setItem('userType', res.result.userType);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Service Message',
+            detail: 'Login Succesful'
+          });
+          setTimeout(() => {
+            this.router.navigate(['user-List']);
+          }, 1000);
+        }
+        else{
+          this.messageService.add({
+            severity: 'error',
+            summary: 'You are not an active user',
+            detail: 'FAILED'
+          });
 
-        // console.log(username+"  "+userType);
-
-        //  sessionStorage.getItem('token');
-        // localStorage.setItem('username', 'admin');
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Service Message',
-          detail: 'Login Succesful'
-        });
-        setTimeout(() => {
-          this.router.navigate(['userManagementform']);
-        }, 1000);
+          this.router.navigate(['']);
+        }
+     
       },
       error => {
         console.log(error);
