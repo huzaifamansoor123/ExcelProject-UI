@@ -66,6 +66,7 @@ import { AuthGuard } from './auth.guard';
     
   ],
   providers: [
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,
