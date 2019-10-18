@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           detail: 'Login Succesful'
         });
         setTimeout(() => {
-          this.router.navigate(['userform']);
+          this.router.navigate(['userManagementform']);
         }, 1000);
       },
       error => {

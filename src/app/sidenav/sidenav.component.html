@@ -12,20 +12,20 @@
             <i class="pi pi-home" style="font-size: 3em; color: darkgrey"></i>
           </div>
           <span class="nav-text">
-            Add Company
+            Home
           </span>
         </a>
       </li>
     </div>
 
-    <div style="margin: 20px 0px 10px 5px;">
-      <li (click)="routetoproductregistrationlist()" style="cursor: pointer;">
+    <div *ngIf="checkUserType()" style="margin: 20px 0px 10px 5px;">
+      <li (click)="routeToUser()" style="cursor: pointer;">
         <a>
           <div style="width: 63px">
             <i class="pi pi-user" style="font-size: 3em; color: darkgrey"></i>
           </div>
           <span class="nav-text">
-            Register Product
+            User Management
           </span>
         </a>
       </li>
@@ -108,9 +108,8 @@
       </li>
     </div>
 
-    <div style="margin: 120
-    px 0px 10px 5px">
-      <li (click)="routetoproductregistrationlist()" style="cursor: pointer;">
+    <div style="margin: 120px 0px 10px 5px">
+      <li (click)="Logout()" style="cursor: pointer;">
         <a>
           <div style="width: 63px">
             <i
@@ -119,7 +118,7 @@
             ></i>
           </div>
           <span class="nav-text">
-            Register Product
+            Logout
           </span>
         </a>
       </li>

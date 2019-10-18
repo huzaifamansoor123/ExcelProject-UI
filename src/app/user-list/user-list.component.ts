@@ -62,6 +62,7 @@ export class UserListComponent implements OnInit {
   updateUsers(){
     let id = this.userTableData[this.userTableData.indexOf(this.selectedUser)]['id'];
     this.userService.editUser(id,this.userObj).subscribe(d=>{
+      
       this.getUsers();
       this.displayDialog = false;
       this.messageService.add({
@@ -70,6 +71,7 @@ export class UserListComponent implements OnInit {
         detail: "User Updated successfully"
       });
     },  error => {
+      console.log(this)
       this.messageService.add({
         severity: "error",
         summary: "Error",
@@ -102,6 +104,10 @@ export class UserListComponent implements OnInit {
     this.newUser = false;
     this.userObj = event.data;
     this.displayDialog = true;
+  }
+
+  routeToAddNewUser(){
+    this.router.navigate(['userManagementform'])
   }
 
 
