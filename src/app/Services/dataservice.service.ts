@@ -18,7 +18,7 @@ export class DataserviceService {
   }
 
   getdatabyid(id): Observable<any> {
-    return this.http.get(environment.baseUrl + 'api/doctor/' + id);
+    return this.http.get(environment.baseUrl + 'api/data/' + id);
   }
 
   deletedatabyid(id): Observable<any> {
