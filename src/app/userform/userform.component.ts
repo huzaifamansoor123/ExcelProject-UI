@@ -23,40 +23,44 @@ export class UserformComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.params.id;
+    this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
-      this.dataService.getdatabyid(this.id).subscribe(d => {
-        this.data.name = d.name;
-        this.data.email1 = d.email1;
-        this.data.email2 = d.email2;
-        this.data.phoneNo1 = d.phoneNo1;
-        this.data.phoneNo2 = d.phoneNo2;
-        this.data.company = d.company;
-        this.data.nationality = d.nationality;
-        this.data.countryOfResidence = d.countryOfResidence;
-        this.data.status1 = d.status1;
-        this.data.status2 = d.status2;
-        this.data.status3 = d.status3;
-        this.data.dateOfFC = d.dateOfFC;
-        this.data.FirstPointOfContact = d.FirstPointOfContact;
-        this.data.details = d.details;
-        this.data.oEmbassyGardens = true;
-        this.data.oTheGallery = d.oTheGallery;
-        this.data.oTheResidence = d.oTheResidence;
-        this.data.oCliftonCourt = d.oCliftonCourt;
-        this.data.oCliftonPlace = d.oCliftonCourt;
-        this.data.oKaiVillas = d.oKaiVillas;
-        this.data.oAddyVillas = d.oAddyVillas;
-        this.data.total = d.total;
-        this.data.tEmbassyGardens = d.tEmbassyGardens;
-        this.data.tTheGallery = d.tTheGallery;
-        this.data.tTheResidence = d.tTheResidence;
-        this.data.tCliftonCourt = d.tCliftonCourt;
-        this.data.tCliftonPlace = d.tCliftonCourt;
-        this.data.tKaiVillas = d.tKaiVillas;
-        this.data.tAddyVillas = d.tAddyVillas;
-      });
+      this.getbyid(this.id);
     }
+  }
+
+  private getbyid(id:any) {
+    this.dataService.getdatabyid(id).subscribe(d => {
+      this.data.name = d.name;
+      this.data.email1 = d.email1;
+      this.data.email2 = d.email2;
+      this.data.phoneNo1 = d.phoneNo1;
+      this.data.phoneNo2 = d.phoneNo2;
+      this.data.company = d.company;
+      this.data.nationality = d.nationality;
+      this.data.countryOfResidence = d.countryOfResidence;
+      this.data.status1 = d.status1;
+      this.data.status2 = d.status2;
+      this.data.status3 = d.status3;
+      this.data.dateOfFC = d.dateOfFC;
+      this.data.FirstPointOfContact = d.FirstPointOfContact;
+      this.data.details = d.details;
+      this.data.oEmbassyGardens = d.oEmbassyGardens;
+      this.data.oTheGallery = d.oTheGallery;
+      this.data.oTheResidence = d.oTheResidence;
+      this.data.oCliftonCourt = d.oCliftonCourt;
+      this.data.oCliftonPlace = d.oCliftonCourt;
+      this.data.oKaiVillas = d.oKaiVillas;
+      this.data.oAddyVillas = d.oAddyVillas;
+      this.data.total = d.total;
+      this.data.tEmbassyGardens = d.tEmbassyGardens;
+      this.data.tTheGallery = d.tTheGallery;
+      this.data.tTheResidence = d.tTheResidence;
+      this.data.tCliftonCourt = d.tCliftonCourt;
+      this.data.tCliftonPlace = d.tCliftonCourt;
+      this.data.tKaiVillas = d.tKaiVillas;
+      this.data.tAddyVillas = d.tAddyVillas;
+    });
   }
 
   numberOnly(event): boolean {
@@ -70,7 +74,7 @@ export class UserformComponent implements OnInit {
   save() {
     console.log(this.data);
     if (this.id != 0 && this.id != null) {
-      this.dataService.updatedatabyid(this.id).subscribe(
+      this.dataService.updatedatabyid(this.data,this.id).subscribe(
         response => {
           console.log('', response);
           this.messageService.add({

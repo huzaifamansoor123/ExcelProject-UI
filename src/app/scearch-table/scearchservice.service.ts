@@ -12,4 +12,20 @@ export class ScearchserviceService {
   public search(searchObj: any):Observable<any>{
     return this.http.post(environment.baseUrl+ 'api/search/data',searchObj);
   }
+    
+  public getalldata():Observable<any>{
+    return this.http.get(environment.baseUrl+"api/data/");
+  }
+  public deletedata(id):Observable<any>{
+    return this.http.delete(environment.baseUrl+"api/data/"+id)
+  }
+
+  public getdataById(id):Observable<any>{
+    return this.http.get(environment.baseUrl+"api/data/"+id)
+  }
+
+  public updatedataById(id,obj):Observable<any>{
+    return this.http.put(environment.baseUrl+"api/data/"+id,obj);
+  }
+
 }

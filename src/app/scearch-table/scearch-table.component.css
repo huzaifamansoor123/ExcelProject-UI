@@ -1,0 +1,12 @@
+.horizontal_scroll_div{
+  
+}
+
+.horizontal_scroll_div .scroll_table_div{
+  overflow-x: scroll !important;
+}
+
+.horizontal_scroll_div .scroll_table_div .table_section{
+  width:1500px !important;
+  /* text-align: center */
+}
