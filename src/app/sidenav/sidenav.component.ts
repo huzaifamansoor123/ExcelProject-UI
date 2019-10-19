@@ -7,9 +7,12 @@ import { Router } from "@angular/router";
   styleUrls: ["./sidenav.component.css"]
 })
 export class SidenavComponent implements OnInit {
+  userType:any;
   constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userType = sessionStorage.getItem('userType');
+  }
 
   routeToUser() {
     this.router.navigate(["user-List"]);

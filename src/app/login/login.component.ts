@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
             detail: 'Login Succesful'
           });
           setTimeout(() => {
-            this.router.navigate(['user-List']);
+            this.router.navigate(['/scearchtable']);
           }, 1000);
         }
         else{

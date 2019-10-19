@@ -3,7 +3,8 @@
 <nav class="main-menu">
   <ul>
     <div style="margin:20px 0px 10px 5px">
-      <li style="cursor: pointer;" (click)="routeToCompanylist()">
+      <li [routerLink]="'/scearchtable'"
+        style="cursor: pointer;">
         <a>
           <div style="width: 63px">
             <i class="pi pi-home" style="font-size: 3em; color: darkgrey"></i>
@@ -15,7 +16,9 @@
       </li>
     </div>
 
-    <div *ngIf="checkUserType()" style="margin: 20px 0px 10px 5px;">
+    <div *ngIf="userType=='ADMIN'"
+     
+      style="margin: 20px 0px 10px 5px;">
       <li (click)="routeToUser()" style="cursor: pointer;">
         <a>
           <div style="width: 63px">
@@ -41,7 +44,8 @@
       </li>
     </div>
 
-    <div style="margin: 20px 0px 10px 5px">
+    <div 
+      style="margin: 20px 0px 10px 5px">
       <li [routerLink]="'/form'" style="cursor: pointer;">
         <a>
           <div style="width: 63px">
@@ -89,7 +93,8 @@
       </li>
     </div> -->
 
-    <div style="margin: 20px 0px 10px 5px">
+    <div *ngIf="userType=='ADMIN'"
+      style="margin: 20px 0px 10px 5px">
       <li [routerLink]="'/userLogs'"
         style="cursor: pointer;">
         <a>
