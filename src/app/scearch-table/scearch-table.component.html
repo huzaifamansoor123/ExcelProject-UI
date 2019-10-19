@@ -1,163 +1,133 @@
-<app-sidenav></app-sidenav>
-<br>
-<br>
-<br>
-<p-toast [showTransitionOptions]="'4ms'"></p-toast>
-<p-card header="" [style]="{  width: '90%',
-'font-size': '20px',
-'text-align': 'center',
-color: 'green',
-'margin-left':'5.5%',
-'margin-right':'5.5%',
-'margin-top':'2%'
-}">
+    <app-sidenav></app-sidenav>
+    <br>
+    <br>
+    <br>
+    <p-toast [showTransitionOptions]="'4ms'"></p-toast>
+    <p-card header="" [style]="{  width: '90%',
+    'font-size': '20px',
+    'text-align': 'center',
+    color: 'green',
+    'margin-left':'5.5%',
+    'margin-right':'5.5%',
+    'margin-top':'2%'
+    }">
 
-<div class="ui-g">
-    <div class="ui-g-12">
-    <h2 style="font-weight:bold;color: rgb(22, 92, 124); text-align:left"> Search Form </h2> 
-    <hr style="background-color:rgb(22, 92, 124); height: 3px; ">     
-    </div>
-    </div>
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <h2 style="font-weight:bold;color: rgb(22, 92, 124); text-align:left"> Search Form </h2>
+                <hr style="background-color:rgb(22, 92, 124); height: 3px; ">
+            </div>
+        </div>
 
-    <div class="ui-g">
+        <div class="ui-g">
             <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                    <div class="ui-inputgroup">
-                    
-                      <input
-                        type="text"
-                        required
-                        [(ngModel)]="sceachtableObj.name"
-                        placeholder="Search by Name "
-                        style="width: 100%"
-                        name="name"
-                        required
-                        pInputText
-                       
-                      />
-                    </div>
-                  </div>
-                  <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                        <div class="ui-inputgroup">
-                        
-                          <input
-                            type="text"
-                            [(ngModel)]="sceachtableObj.email"
-                            required
-                            placeholder="Search by Email"
-                            style="width: 100%"
-                            name="email"
-                            required
-                            pInputText
-                           
-                          />
-                        </div>
-                      </div>
-                      <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                            <div class="ui-inputgroup">
-                            
-                              <input
-                                type="text"
-                                [(ngModel)]="sceachtableObj.status"
-                                required
-                                placeholder="Search by status"
-                                style="width: 100%"
-                                name="status"
-                                required
-                                pInputText
-                               
-                              />
-                            </div>
-                          </div>
-                  
+                <div class="ui-inputgroup">
+
+                    <input type="text" required [(ngModel)]="sceachtableObj.name" placeholder="Search by Name "
+                        style="width: 100%" name="name" required pInputText />
+                </div>
+            </div>
+            <div class="ui-md-4 ui-lg-4 ui-sm-12">
+                <div class="ui-inputgroup">
+
+                    <input type="text" [(ngModel)]="sceachtableObj.email" required placeholder="Search by Email"
+                        style="width: 100%" name="email" required pInputText />
+                </div>
+            </div>
+            <div class="ui-md-4 ui-lg-4 ui-sm-12">
+                <div class="ui-inputgroup">
+
+                    <input type="text" [(ngModel)]="sceachtableObj.status" required placeholder="Search by status"
+                        style="width: 100%" name="status" required pInputText />
+                </div>
+            </div>
+
         </div>
 
         <div class="ui-g">
 
-                <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                        <div class="ui-inputgroup">
-                         
-                          <input
-                            type="text"
-                            [(ngModel)]="sceachtableObj.phoneNumber"
-                            required
-                            placeholder="Search by phoneNumber"
-                            style="width: 100%"
-                            name="phoneNumber"
-                            required
-                            pInputText
-                           
-                          />
-                        </div>
-                      </div>
-                      
-                <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                        <div class="ui-inputgroup">
-                        
-                                <p-calendar  [style]="{width:'100%'}" id="year" name="appointmentDate" required   [monthNavigator]="true" [yearNavigator]="true" yearRange="2019:2090" showButtonBar = "true"  [(ngModel)]="findbydate" placeholder="Search by Date">
-                                    </p-calendar>
-                         
-                        </div>
-                      </div>
-                      <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                            <button
-                            pButton
-                            type="button" 
-                            (click)="postScearch()"
-                            style="width:70%;background-color:rgb(22, 92, 124)"
-                            label="Search"
-                          ></button>
-                          </div>
+            <div class="ui-md-4 ui-lg-4 ui-sm-12">
+                <div class="ui-inputgroup">
 
+                    <input type="text" [(ngModel)]="sceachtableObj.phoneNumber" required placeholder="Search by phoneNumber"
+                        style="width: 100%" name="phoneNumber" required pInputText />
+                </div>
             </div>
 
-</p-card>
-<br>
-<p-card header="" [style]="{  width: '90%',
-'font-size': '20px',
-'text-align': 'center',
-color: 'green',
-'margin-left':'5.5%',
-'margin-right':'5.5%'
-}">
-<p-toast> </p-toast>
-    
-    <p-table #dt [columns]="cols" [value]="productRegistration" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
-        <ng-template pTemplate="caption">
-                <div class="ui-g-12">
-                        <h2 style="font-weight:bold;color:rgb(22, 92, 124);">SEARCH LIST</h2>
-                        <hr style="background-color:rgb(22, 92, 124);height:3px;" />
-                    </div>
-            <div style="text-align: right">
-                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto" />
+            <div class="ui-md-4 ui-lg-4 ui-sm-12">
+                <div class="ui-inputgroup">
+
+                    <p-calendar [style]="{width:'100%'}" id="year" name="appointmentDate" required [monthNavigator]="true"
+                        [yearNavigator]="true" yearRange="2019:2090" showButtonBar="true" [(ngModel)]="findbydate"
+                        placeholder="Search by Date">
+                    </p-calendar>
+
+                </div>
             </div>
-        </ng-template>
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th *ngFor="let col of columns">
-                    {{ col.header }}
-                </th>
-                <th style="text-align: center;">
-                    Actions
-                </th>
-            </tr>
-          
-        </ng-template>  
+            <div class="ui-md-4 ui-lg-4 ui-sm-12">
+                <button pButton type="button" style="width:70%;background-color:rgb(22, 92, 124)" label="Search"></button>
+            </div>
 
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr [pSelectableRow]="rowData">
-                <td *ngFor="let col of columns" style="overflow: auto;">
-                    {{ rowData[col.field] }}
-                </td>
-                <td>
-                    <button pButton [ngStyle]="{width:'80px',margin:'8px'}" type="button" label="Delete" class="ui-button-danger"  (click)="deleteproductregistrationbyid(rowData['id'])"></button>        
-            <button pButton [ngStyle]="{width:'80px',margin:'8px'}" type="button" label="Edit" class="ui-button-success"  (click)="updatebyid(rowData['id'])"></button>
-                    <!-- <button pButton type="button" (click)="deletePanelByID(rowData['id'])" class="ui-button-danger" style="width:20%;height: 50px; margin-left: 40%; "> -->
-         
-          <!-- </button> -->
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-</p-card>
+        </div>
 
+    </p-card>
+    <br>
+    <p-card header="" [style]="{  width: '90%',
+    'font-size': '20px',
+    'text-align': 'center',
+    color: 'green',
+    'margin-left':'5.5%',
+    'margin-right':'5.5%'
+    }">
+        <p-toast> </p-toast>
+        <div class="horizontal_scroll_div">
+            <div class="scroll_table_div b">
+                <div class="table_section">
+                    <p-table #dt [columns]="cols" [value]="data" [paginator]="true" [rows]="10"
+                        [totalRecords]="totalRecords">
+                        <ng-template pTemplate="caption">
+                            <div class="ui-lg-offset-1 ui-lg-8">
+                                <h2 style="font-weight:bold;color:rgb(22, 92, 124);">SEARCH LIST</h2>
+                                <!-- <hr style="background-color:rgb(22, 92, 124);height:3px;" /> -->
+                            </div>
+                            <div style="text-align: left">
+                                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                <input type="text" pInputText size="50" placeholder="Global Filter"
+                                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto" />
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th  *ngFor="let col of columns" style="text-align: center;word-wrap:normal;">
+                                    {{ col.header }}
+                                </th>
+                                <th style="text-align: center;">
+                                    Actions
+                                </th>
+                            </tr>
+
+                        </ng-template>
+
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                            <tr [pSelectableRow]="rowData">
+                                <td *ngFor="let col of columns" style="overflow:auto">
+                                    {{ rowData[col.field] }}
+                                </td>
+                                <td>
+                                    <button pButton [ngStyle]="{width:'100%',margin:'8px'}" type="button" label="Delete"
+                                        class="ui-button-danger"
+                                        (click)="deletedatabyid(rowData['id'])"></button>
+                                    <button pButton [ngStyle]="{width:'100%',margin:'8px','text-align':'center'}"
+                                        type="button" label="Edit" class="ui-button-success"
+                                        (click)="updatebyid(rowData['id'])"></button>
+                                    <!-- <button pButton type="button" (click)="deletePanelByID(rowData['id'])" class="ui-button-danger" style="width:20%;height: 50px; margin-left: 40%; "> -->
+
+                                    <!-- </button> -->
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </p-card>
