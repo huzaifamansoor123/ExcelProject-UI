@@ -3,77 +3,12 @@
     <br>
     <br>
     <p-toast [showTransitionOptions]="'4ms'"></p-toast>
-    <!-- <p-card header="" [style]="{  width: '90%',
-    'font-size': '20px',
-    'text-align': 'center',
-    color: 'green',
-    'margin-left':'5.5%',
-    'margin-right':'5.5%',
-    'margin-top':'2%'
-    }">
-
-        <div class="ui-g">
-            <div class="ui-g-12">
-                <h2 style="font-weight:bold;color: rgb(22, 92, 124); text-align:left"> Search Form </h2>
-                <hr style="background-color:rgb(22, 92, 124); height: 3px; ">
-            </div>
-        </div>
-
-        <div class="ui-g">
-            <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                <div class="ui-inputgroup">
-
-                    <input type="text" required [(ngModel)]="sceachtableObj.name" placeholder="Search by Name "
-                        style="width: 100%" name="name" required pInputText />
-                </div>
-            </div>
-            <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                <div class="ui-inputgroup">
-
-                    <input type="text" [(ngModel)]="sceachtableObj.email" required placeholder="Search by Email"
-                        style="width: 100%" name="email" required pInputText />
-                </div>
-            </div>
-            <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                <div class="ui-inputgroup">
-
-                    <input type="text" [(ngModel)]="sceachtableObj.status" required placeholder="Search by status"
-                        style="width: 100%" name="status" required pInputText />
-                </div>
-            </div>
-
-        </div>
-
-        <div class="ui-g">
-
-            <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                <div class="ui-inputgroup">
-
-                    <input type="text" [(ngModel)]="sceachtableObj.phoneNumber" required placeholder="Search by phoneNumber"
-                        style="width: 100%" name="phoneNumber" required pInputText />
-                </div>
-            </div>
-
-            <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                <div class="ui-inputgroup">
-
-                    <p-calendar [style]="{width:'100%'}" id="year" name="appointmentDate" required [monthNavigator]="true"
-                        [yearNavigator]="true" yearRange="2019:2090" showButtonBar="true" [(ngModel)]="findbydate"
-                        placeholder="Search by Date">
-                    </p-calendar>
-
-                </div>
-            </div>
-            <div class="ui-md-4 ui-lg-4 ui-sm-12">
-                <button pButton type="button" style="width:70%;background-color:rgb(22, 92, 124)" label="Search"></button>
-            </div>
-
-        </div>
-
-    </p-card>
-    <br> -->
+   
     <br>
-    <p-card header="" [style]="{  width: '90%',
+
+
+   
+    <p-card header="" [style]="{  width: '100%',
     'font-size': '20px',
     'text-align': 'center',
     color: 'green',
@@ -86,7 +21,7 @@
             <div class="scroll_table_div b">
                 <div class="table_section">
                     <p-table #dt [columns]="cols" [value]="data" [paginator]="true" [rows]="10"
-                        [totalRecords]="totalRecords">
+                        [totalRecords]="totalRecords ">
                         <ng-template pTemplate="caption">
                             <div class="ui-lg-offset-1 ui-lg-8">
                                 <h2 style="font-weight:bold;color:rgb(22, 92, 124);">SEARCH LIST</h2>

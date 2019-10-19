@@ -97,7 +97,7 @@ export class UserformComponent implements OnInit {
         d => {
           console.log('', d);
           this.messageService.add({
-            key: 's',
+          
             severity: 'success',
             summary: 'Data updated successfully',
             detail: 'Added'
@@ -105,7 +105,7 @@ export class UserformComponent implements OnInit {
         },
         error => {
           this.messageService.add({
-            key: 's',
+          
             severity: 'error',
             summary: 'Failed',
             detail: 'Unable to add Data'
