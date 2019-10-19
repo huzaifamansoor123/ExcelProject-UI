@@ -68,6 +68,7 @@ import { UserLogsTableComponent } from './user-logs-table/user-logs-table.compon
     
   ],
   providers: [
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,

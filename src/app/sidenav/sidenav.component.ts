@@ -12,7 +12,7 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {}
 
   routeToUser() {
-    this.router.navigate(["userManagementform"]);
+    this.router.navigate(["user-List"]);
   }
 
   Logout() {
@@ -23,5 +23,8 @@ export class SidenavComponent implements OnInit {
   checkUserType(){
     if (sessionStorage.getItem("userType") == "ADMIN") return true;
     else return false;
+  }
+  gotosearch(){
+    this.router.navigate(['scearchtable'])
   }
 }
