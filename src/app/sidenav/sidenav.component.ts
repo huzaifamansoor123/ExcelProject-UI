@@ -24,4 +24,7 @@ export class SidenavComponent implements OnInit {
     if (sessionStorage.getItem("userType") == "ADMIN") return true;
     else return false;
   }
+  gotosearch(){
+    this.router.navigate(['scearchtable'])
+  }
 }
