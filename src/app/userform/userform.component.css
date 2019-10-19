@@ -1,3 +1,19 @@
 .mynav{
   height: 100%;
 }
+
+h2{
+  margin-left:2%;
+  color: rgb(22, 92, 124);
+}
+
+.section{
+  border-bottom: 1px solid rgb(22, 92, 124);
+  padding: 20px;  
+  text-align: left;
+}
+
+.row{
+  padding: inherit;
+} 
+

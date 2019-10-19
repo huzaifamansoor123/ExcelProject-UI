@@ -1,13 +1,14 @@
 <div class="main">
     <p-toast></p-toast>
   <div class="container">
-        <h1 style="font-family: Arial; color: white">LOGIN</h1>
+        <h1 style="font-family: Arial; color: white;text-align: center">LOGIN</h1>
         <br>
     <div class="middle">
         
       <div id="login">
         <form >
           <fieldset class="clearfix">
+         
             <p>
               <span class="pi pi-user"></span
               ><input type="text" name="Username" #u1  Placeholder="Username" required />
@@ -19,7 +20,7 @@
 
             <div>
              
-              <span style="width:50%; text-align:right;  display: inline-block;"
+              <span style="width:100%; text-align:right;  display: inline-block;"
                 ><input type="submit" value="Sign In" (click)="check(u1.value, p2.value)"
               /></span>
             </div>

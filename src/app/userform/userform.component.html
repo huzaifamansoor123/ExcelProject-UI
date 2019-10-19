@@ -1,12 +1,7 @@
-
 <app-sidenav></app-sidenav>
-<br />
-<br />
-<br />
-<br />
 
 
-<div class="ui-g-8">
+<!-- <div class="ui-g-8">
   <p-toast></p-toast>
   <div class="ui-lg-5 ui-md-5 ui-sm-12">
     <button
@@ -18,170 +13,163 @@
       [routerLink]="['/scearchtable']"
     ></button>
   </div>
-</div>
+</div> -->
 
-<div class="ui-g-11 ui-fluid" style="margin-left: 5%;">
-  <div class="ui-g-12 ui-md-12">
-    <div class="container">
-      <p-card
-        header="FORM"
-        [style]="{
+<div class="ui-g">
+  <div class="container">
+    <p-card header=""
+      [style]="{
           width: '100%',
           'margin-top': '5px !important',
           color: '#007ad9',
           'text-align': 'center',
           height: '30% !important'
-        }"
-      >
-        <hr />
-        <form #myForm="ngForm">
-          <h2 style="margin-right: 85%;">Contact Details:</h2>
+        }">
+      <hr />
+      <form #myForm="ngForm">
+        <h3 style="font-weight:bold;color: rgb(22, 92, 124);">
+          LIST OF USERS
+        </h3>
+
+        <div class="section">
+          <div class="row">
+
+            <h2>Contact Details:</h2>
+
+          </div>
           <div class="ui-g ui-fluid">
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="name"
                   name="name"
                   [(ngModel)]="data.name"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
 
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="email Address 1"
                   name="email"
                   [(ngModel)]="data.email1"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
 
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="email Address 2"
                   name="email2"
                   [(ngModel)]="data.email2"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
 
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  pInputText
+                <input pInputText
                   placeholder="Phone number 1"
                   name="phonenumber1"
                   (keypress)="numberOnly($event)"
                   [(ngModel)]="data.phoneNo1"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  pInputText
+                <input pInputText
                   placeholder="Phone number 2"
                   name="phonenumber2"
                   (keypress)="numberOnly($event)"
                   [(ngModel)]="data.phoneNo2"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Company"
                   name="company"
                   [(ngModel)]="data.company"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Nationality"
                   name="Nationality"
                   [(ngModel)]="data.nationality"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
             <div class="ui-g-12 ui-md-3">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Country of residence"
                   name="countryOfResidence"
                   [(ngModel)]="data.countryOfResidence"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
           </div>
-          <h2 style="margin-right: 92%;">Status:</h2>
+        </div>
+        <div class="section">
+          <div class="row">
+            <h2>Status:</h2>
+          </div>
           <div class="ui-g ui-fluid">
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Status 1"
                   name="status1"
                   [(ngModel)]="data.status1"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Status 2"
                   name="status2"
                   [(ngModel)]="data.status2"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Status 3"
                   name="status3"
                   [(ngModel)]="data.status3"
-                  ngModel
-                />
+                  ngModel />
               </div>
             </div>
           </div>
-          <h2 style="margin-right: 92%;">Source:</h2>
+        </div>
+
+        <div class="section">
+          <div class="row">
+
+            <h2>Source:</h2>
+          </div>
           <div class="ui-g ui-fluid">
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
-                <p-calendar
-                  [ngStyle]="{ width: '100%' }"
+                <p-calendar [ngStyle]="{ width: '100%' }"
                   [(ngModel)]="data.dateOfFC"
                   [monthNavigator]="true"
                   [yearNavigator]="true"
@@ -189,196 +177,184 @@
                   name="dateOfFC"
                   showButtonBar="true"
                   dateFormat="dd/mm/yy"
-                  placeholder="Date of first Contact"
-                >
+                  placeholder="Date of first Contact">
                 </p-calendar>
               </div>
             </div>
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="First Point of Contact"
                   name="FirstPointOfContact"
-                  [(ngModel)]="data.FirstPointOfContact"
-                />
+                  [(ngModel)]="data.FirstPointOfContact" />
               </div>
             </div>
 
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
-                <input
-                  type="text"
+                <input type="text"
                   pInputText
                   placeholder="Details"
                   name="details"
-                  [(ngModel)]="data.details"
-                />
+                  [(ngModel)]="data.details" />
               </div>
             </div>
           </div>
+        </div>
 
-          <h2 style="margin-right: 92%;">Owner:</h2>
-          <div class="ui-g ui-fluid">
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oEmbassyGardens"
+        <div class="section">
+          <div class="row">
+            <h2>Owner:</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oEmbassyGardens"
                 label="Embassy Gardens"
                 binary="true"
-                [(ngModel)]="data.oEmbassyGardens"
-              ></p-checkbox>
+                [(ngModel)]="data.oEmbassyGardens">
+              </p-checkbox>
             </div>
-
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oTheGallery"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oTheGallery"
                 label="The Gallery"
                 binary="true"
-                [(ngModel)]="data.oTheGallery"
-              ></p-checkbox>
+                [(ngModel)]="data.oTheGallery">
+              </p-checkbox>
             </div>
-
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oTheResidence"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oTheResidence"
                 label="The Residence"
                 binary="true"
-                [(ngModel)]="data.oTheResidence"
-              ></p-checkbox>
+                [(ngModel)]="data.oTheResidence">
+              </p-checkbox>
             </div>
-
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oCliftonPlace"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oCliftonPlace"
                 label="Clifton Place"
                 binary="true"
-                [(ngModel)]="data.oCliftonPlace"
-              ></p-checkbox>
+                [(ngModel)]="data.oCliftonPlace">
+              </p-checkbox>
             </div>
+          </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oCliftonCourt"
+
+
+          <div class="row">
+
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oCliftonCourt"
                 label="Clifton Court"
                 binary="true"
-                [(ngModel)]="data.oCliftonCourt"
-              ></p-checkbox>
+                [(ngModel)]="data.oCliftonCourt"></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oKaiVillas"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oKaiVillas"
                 label="Kai Villas"
                 binary="true"
-                [(ngModel)]="data.oKaiVillas"
-              ></p-checkbox>
+                [(ngModel)]="data.oKaiVillas"></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="oAddyVillas"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="oAddyVillas"
                 label="Addy Villas"
                 binary="true"
-                [(ngModel)]="data.oAddyVillas"
-              ></p-checkbox>
+                [(ngModel)]="data.oAddyVillas"></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
+            <div class="col-lg-3 col-sm-3 col-xs-12">
               <div class="ui-inputgroup">
-                <input
-                  pInputText
+                <input pInputText
                   placeholder="Total"
                   name="total"
                   [(ngModel)]="data.total"
-                  (keypress)="numberOnly($event)"
-                />
+                  (keypress)="numberOnly($event)" />
               </div>
             </div>
           </div>
+        </div>
 
-          <h2 style="margin-right: 92%;">Tenant:</h2>
-          <div class="ui-g ui-fluid">
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tEmbassyGardens"
+
+        <div class="section">
+          <div class="row">
+            <h2>Tenant:</h2>
+
+          </div>
+
+
+          <div class="row">
+
+   
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tEmbassyGardens"
                 label="Embassy Gardens"
                 binary="true"
-                [(ngModel)]="data.tEmbassyGardens"
-              ></p-checkbox>
+                [(ngModel)]="data.tEmbassyGardens"></p-checkbox>  
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tTheGallery"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tTheGallery"
                 label="The Gallery"
                 binary="true"
-                [(ngModel)]="data.tTheGallery"
-              ></p-checkbox>
+                [(ngModel)]="data.tTheGallery"></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tTheResidence"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tTheResidence"
                 label="The Residence"
                 binary="true"
-                [(ngModel)]="data.tTheResidence"
-              ></p-checkbox>
+                [(ngModel)]="data.tTheResidence"></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tCliftonPlace"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tCliftonPlace"
                 label="Clifton Place"
                 binary="true"
-                [(ngModel)]="data.tCliftonPlace"
-              ></p-checkbox>
+                [(ngModel)]="data.tCliftonPlace"></p-checkbox>
             </div>
+          </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tCliftonCourt"
+
+          <div class="row">
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tCliftonCourt"
                 label="Clifton Court"
                 binary="true"
                 [(ngModel)]="data.tCliftonCourt"
-                ngModel
-              ></p-checkbox>
+                ngModel></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tKaiVillas"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tKaiVillas"
                 label="Kai Villas"
                 binary="true"
                 [(ngModel)]="data.tKaiVillas"
-                ngModel
-              ></p-checkbox>
+                ngModel></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-3">
-              <p-checkbox
-                name="tAddyVillas"
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+              <p-checkbox name="tAddyVillas"
                 label="Addy Villas"
                 binary="true"
                 [(ngModel)]="data.tAddyVillas"
-                ngModel
-              ></p-checkbox>
+                ngModel></p-checkbox>
             </div>
           </div>
-          <div class="ui-lg-12">
-            <div class="ui-inputgroup">
-              <button
-                pButton
-                type="button"
-                class="success"
-                label="Submit"
-                style="width: 100%;"
-                (click)="save()"
-              ></button>
-            </div>
+        </div>
+
+
+        <div class="ui-lg-12">
+          <div class="ui-inputgroup">
+            <button pButton
+              type="button"
+              class="success"
+              label="Submit"
+              style="width: 100%;background-color: rgb(22, 92, 124);"
+              (click)="save()"></button>
           </div>
-        </form>
-      </p-card>
-    </div>
+        </div>
+      </form>
+    </p-card>
   </div>
-</div>
+</div>  
