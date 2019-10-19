@@ -35,7 +35,9 @@ const routes: Routes = [
   component: UserformComponent },
   { path: 'usertable',
   canActivate: [AuthGuard],
-  component: UsertableComponent }
+  component: UsertableComponent },
+  {path:'form/:id',component:UserformComponent}
+
 
 ];
 

@@ -25,7 +25,7 @@ export class DataserviceService {
     return this.http.delete(environment.baseUrl + 'api/data/' + id);
   }
 
-  updatedatabyid(id): Observable<any> {
-    return this.http.post(environment.baseUrl + 'api/data/' + id, id);
+  updatedatabyid(obj,id): Observable<any> {
+    return this.http.put(environment.baseUrl + 'api/data/' + id, obj);
   }
 }
