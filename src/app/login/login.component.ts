@@ -15,8 +15,14 @@ export class LoginComponent implements OnInit {
     private messageService: MessageService,
     private service: LoginService  ) { }
 
-  ngOnInit() {
+  dateString: any
 
+
+  ngOnInit() {
+    var d = new Date().toString();
+    this.dateString = new Date(d).toUTCString();
+    this.dateString = this.dateString.split(' ').slice(0, 5).join(' ');
+    console.log(this.dateString);
   }
   check(uname: string, p: string) {
     // var output = this.service.checkUserandPass(uname, p);
