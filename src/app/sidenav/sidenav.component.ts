@@ -12,7 +12,7 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {}
 
   routeToUser() {
-    this.router.navigate(["userManagementform"]);
+    this.router.navigate(["user-List"]);
   }
 
   Logout() {
