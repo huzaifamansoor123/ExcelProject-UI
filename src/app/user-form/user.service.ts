@@ -43,4 +43,11 @@ export class UserService {
   checkUserType(){
     this.userTypeCurrent=sessionStorage.getItem("userType"); 
  }
+  public getAllLogs(): Observable<any> {
+    return this.http.get(environment.baseUrl +"getalllogs");
+  }
+
+  public postUser(obj:Object):Observable<any>{
+    return this.http.post(environment.baseUrl+"postLogs",obj)
+  }
 }

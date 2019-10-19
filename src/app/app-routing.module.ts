@@ -7,6 +7,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserformComponent } from './userform/userform.component';
 import { UsertableComponent } from './usertable/usertable.component';
 import { AuthGuard } from './auth.guard';
+import { UserLogsTableComponent } from './user-logs-table/user-logs-table.component';
 
 
 
@@ -31,13 +32,15 @@ const routes: Routes = [
   canActivate: [AuthGuard],
   component: ScearchTableComponent },
   { path: 'form',
-  canActivate: [AuthGuard],
   component: UserformComponent },
   { path: 'usertable',
   canActivate: [AuthGuard],
   component: UsertableComponent },
-  {path:'form/:id',component:UserformComponent}
+  {path:'form/:id',component:UserformComponent},
 
+   { path: 'userLogs',
+  canActivate: [AuthGuard],
+  component: UserLogsTableComponent }
 
 ];
 

@@ -13,19 +13,20 @@ export class Data {
   dateOfFC: string;
   FirstPointOfContact: string;
   details: string;
-  oEmbassyGardens: string;
-  oTheGallery: string;
-  oTheResidence: string;
-  oCliftonPlace: string;
-  oCliftonCourt: string;
-  oKaiVillas: string;
-  oAddyVillas: string;
+
+  oEmbassyGardens: boolean = false;
+  oTheGallery: boolean = false;
+  oTheResidence: boolean = false;
+  oCliftonPlace: boolean = false;
+  oCliftonCourt: boolean = false;
+  oKaiVillas: boolean = false;
+  oAddyVillas: boolean = false;
   total: number;
-  tEmbassyGardens: string;
-  tTheGallery: string;
-  tTheResidence: string;
-  tCliftonPlace: string;
-  tCliftonCourt: string;
-  tKaiVillas: string;
-  tAddyVillas: string;
+  tEmbassyGardens: boolean = false;
+  tTheGallery: boolean = false;
+  tTheResidence: boolean = false;
+  tCliftonPlace: boolean = false;
+  tCliftonCourt: boolean = false;
+  tKaiVillas: boolean = false;
+  tAddyVillas: boolean = false;
 }

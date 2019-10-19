@@ -1,3 +1,11 @@
+
+<app-sidenav></app-sidenav>
+<br />
+<br />
+<br />
+<br />
+
+
 <div class="ui-g-8">
   <p-toast></p-toast>
   <div class="ui-lg-5 ui-md-5 ui-sm-12">
@@ -7,12 +15,12 @@
       class="success"
       style="width:45%;margin-left:10% "
       label="Back"
-      [routerLink]="['/usertable']"
+      [routerLink]="['/scearchtable']"
     ></button>
   </div>
 </div>
 
-<div class="ui-g-8 ui-fluid ">
+<div class="ui-g-11 ui-fluid" style="margin-left: 5%;">
   <div class="ui-g-12 ui-md-12">
     <div class="container">
       <p-card
@@ -194,7 +202,6 @@
                   placeholder="First Point of Contact"
                   name="FirstPointOfContact"
                   [(ngModel)]="data.FirstPointOfContact"
-                  ngModel
                 />
               </div>
             </div>
@@ -207,7 +214,6 @@
                   placeholder="Details"
                   name="details"
                   [(ngModel)]="data.details"
-                  ngModel
                 />
               </div>
             </div>
@@ -216,94 +222,66 @@
           <h2 style="margin-right: 92%;">Owner:</h2>
           <div class="ui-g ui-fluid">
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Embassy Gardens"
-                  name="EmbassyGardens"
-                  [(ngModel)]="data.oEmbassyGardens"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oEmbassyGardens"
+                label="Embassy Gardens"
+                binary="true"
+                [(ngModel)]="data.oEmbassyGardens"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="The Gallery"
-                  name="TheGallery"
-                  [(ngModel)]="data.oTheGallery"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oTheGallery"
+                label="The Gallery"
+                binary="true"
+                [(ngModel)]="data.oTheGallery"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="The Residence"
-                  name="TheResidence"
-                  [(ngModel)]="data.oTheResidence"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oTheResidence"
+                label="The Residence"
+                binary="true"
+                [(ngModel)]="data.oTheResidence"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Clifton Place"
-                  name="CliftonPlace"
-                  [(ngModel)]="data.oCliftonPlace"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oCliftonPlace"
+                label="Clifton Place"
+                binary="true"
+                [(ngModel)]="data.oCliftonPlace"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Clifton Court"
-                  name="Clifton Court"
-                  [(ngModel)]="data.oCliftonCourt"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oCliftonCourt"
+                label="Clifton Court"
+                binary="true"
+                [(ngModel)]="data.oCliftonCourt"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Kai Villas"
-                  name="Kai Villas"
-                  [(ngModel)]="data.oKaiVillas"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oKaiVillas"
+                label="Kai Villas"
+                binary="true"
+                [(ngModel)]="data.oKaiVillas"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Addy Villas"
-                  name="Addy Villas"
-                  [(ngModel)]="data.oAddyVillas"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="oAddyVillas"
+                label="Addy Villas"
+                binary="true"
+                [(ngModel)]="data.oAddyVillas"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
@@ -314,7 +292,6 @@
                   name="total"
                   [(ngModel)]="data.total"
                   (keypress)="numberOnly($event)"
-                  ngModel
                 />
               </div>
             </div>
@@ -323,94 +300,69 @@
           <h2 style="margin-right: 92%;">Tenant:</h2>
           <div class="ui-g ui-fluid">
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Embassy Gardens"
-                  name="EmbassyGardens"
-                  [(ngModel)]="data.tEmbassyGardens"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="tEmbassyGardens"
+                label="Embassy Gardens"
+                binary="true"
+                [(ngModel)]="data.tEmbassyGardens"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="The Gallery"
-                  name="TheGallery"
-                  [(ngModel)]="data.tTheGallery"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="tTheGallery"
+                label="The Gallery"
+                binary="true"
+                [(ngModel)]="data.tTheGallery"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="The Residence"
-                  name="TheResidence"
-                  [(ngModel)]="data.tTheResidence"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="tTheResidence"
+                label="The Residence"
+                binary="true"
+                [(ngModel)]="data.tTheResidence"
+              ></p-checkbox>
             </div>
 
             <div class="ui-g-12 ui-md-3">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Clifton Place"
-                  name="CliftonPlace"
-                  [(ngModel)]="data.tCliftonPlace"
-                  ngModel
-                />
-              </div>
+              <p-checkbox
+                name="tCliftonPlace"
+                label="Clifton Place"
+                binary="true"
+                [(ngModel)]="data.tCliftonPlace"
+              ></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-4">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Clifton Court"
-                  name="Clifton Court"
-                  [(ngModel)]="data.tCliftonCourt"
-                  ngModel
-                />
-              </div>
+            <div class="ui-g-12 ui-md-3">
+              <p-checkbox
+                name="tCliftonCourt"
+                label="Clifton Court"
+                binary="true"
+                [(ngModel)]="data.tCliftonCourt"
+                ngModel
+              ></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-4">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Kai Villas"
-                  name="Kai Villas"
-                  [(ngModel)]="data.tKaiVillas"
-                  ngModel
-                />
-              </div>
+            <div class="ui-g-12 ui-md-3">
+              <p-checkbox
+                name="tKaiVillas"
+                label="Kai Villas"
+                binary="true"
+                [(ngModel)]="data.tKaiVillas"
+                ngModel
+              ></p-checkbox>
             </div>
 
-            <div class="ui-g-12 ui-md-4">
-              <div class="ui-inputgroup">
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Addy Villas"
-                  name="Addy Villas"
-                  [(ngModel)]="data.tAddyVillas"
-                  ngModel
-                />
-              </div>
+            <div class="ui-g-12 ui-md-3">
+              <p-checkbox
+                name="tAddyVillas"
+                label="Addy Villas"
+                binary="true"
+                [(ngModel)]="data.tAddyVillas"
+                ngModel
+              ></p-checkbox>
             </div>
           </div>
           <div class="ui-lg-12">
@@ -421,7 +373,7 @@
                 class="success"
                 label="Submit"
                 style="width: 100%;"
-                (click)="save(); myForm.resetForm()"
+                (click)="save()"
               ></button>
             </div>
           </div>

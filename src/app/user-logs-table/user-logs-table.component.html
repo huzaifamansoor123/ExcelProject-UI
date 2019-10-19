@@ -1,0 +1,78 @@
+<app-sidenav></app-sidenav>
+<br />
+<br />
+<br />
+<br />
+
+
+<p-card header=""
+  [style]="{
+        width: '90%',
+        'font-size': '20px',
+        'text-align': 'center',
+        color: 'green',
+        'margin-left': '5.5%',
+        'margin-right': '5.5%'
+      }">
+
+
+
+
+  <div class="row">
+
+
+    <div class="col-sm-5"></div>
+
+    
+    <h1 style="font-weight:bold;color: rgb(22, 92, 124);text-align: left ">
+      USER LOGS LIST
+       <hr style="background-color:rgb(22, 92, 124);height:3px;" />
+    </h1>
+
+
+   
+    <div class="col-sm-12">
+      <table #data
+        class="table table-striped table-bordered">
+
+        <thead>
+
+
+          <th *ngFor="let col of cols">
+            {{ col.header }}
+          </th>
+
+
+          <th>
+            Actions
+          </th>
+
+        </thead>
+
+
+        <tbody>
+
+
+
+
+          <tr *ngFor="let value of list; let i of list"
+            style="overflow: auto;">
+            <td>{{ value.name }}</td>
+            <td>{{ value.email }}</td>
+            <td>{{ value.updatedBy }}</td>
+            <td>{{ value.deletedBy }}</td>
+            <td>{{ value.updatedAt }}</td>
+            <td>{{ value.deletdAt }}</td>
+
+
+
+
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</p-card>

@@ -10,6 +10,7 @@ import { DataserviceService } from '../Services/dataservice.service';
   styleUrls: ['./userform.component.css']
 })
 export class UserformComponent implements OnInit {
+  value: boolean = false;
   data: Data = new Data();
   id: any;
   constructor(
@@ -17,7 +18,9 @@ export class UserformComponent implements OnInit {
     private router: Router,
     private messageService: MessageService,
     private dataService: DataserviceService
-  ) {}
+  ) {
+    console.log(this.data);
+  }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -119,5 +122,9 @@ export class UserformComponent implements OnInit {
 
   routePage() {
     this.router.navigate(['']);
+  }
+
+  show() {
+    console.log(this.data.oEmbassyGardens);
   }
 }
