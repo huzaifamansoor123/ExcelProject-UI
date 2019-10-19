@@ -15,31 +15,45 @@ export class LoginComponent implements OnInit {
     private messageService: MessageService,
     private service: LoginService  ) { }
 
-  ngOnInit() {
+  dateString: any
 
+
+  ngOnInit() {
+    var d = new Date().toString();
+    this.dateString = new Date(d).toUTCString();
+    this.dateString = this.dateString.split(' ').slice(0, 5).join(' ');
+    console.log(this.dateString);
   }
   check(uname: string, p: string) {
     // var output = this.service.checkUserandPass(uname, p);
     this.service.checkUserandPass(uname, p).subscribe(
       res => {
-        console.log('toker', res);
+        if(res.status=="200"){
+          console.log('toker', res);
 
-        sessionStorage.setItem('token', res.result.token);
-        var username = sessionStorage.setItem('username', res.result.username);
-        var userType = sessionStorage.setItem('userType', res.result.userType);
+          sessionStorage.setItem('token', res.result.token);
+          sessionStorage.setItem('email',res.result.email);
+          sessionStorage.setItem('username', res.result.username);
+          sessionStorage.setItem('userType', res.result.userType);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Service Message',
+            detail: 'Login Succesful'
+          });
+          setTimeout(() => {
+            this.router.navigate(['user-List']);
+          }, 1000);
+        }
+        else{
+          this.messageService.add({
+            severity: 'error',
+            summary: 'You are not an active user',
+            detail: 'FAILED'
+          });
 
-        // console.log(username+"  "+userType);
-
-        //  sessionStorage.getItem('token');
-        // localStorage.setItem('username', 'admin');
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Service Message',
-          detail: 'Login Succesful'
-        });
-        setTimeout(() => {
-          this.router.navigate(['userManagementform']);
-        }, 1000);
+          this.router.navigate(['']);
+        }
+     
       },
       error => {
         console.log(error);

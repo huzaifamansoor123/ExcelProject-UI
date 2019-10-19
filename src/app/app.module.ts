@@ -34,6 +34,7 @@ import { UserformComponent } from './userform/userform.component';
 import { UsertableComponent } from './usertable/usertable.component';
 import { NoopInterceptor } from './request.intercept';
 import { AuthGuard } from './auth.guard';
+import { UserLogsTableComponent } from './user-logs-table/user-logs-table.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AuthGuard } from './auth.guard';
     LoginComponent,
     UserFormComponent,
     SidenavComponent,
-    UserListComponent
+    UserListComponent,
+    UserLogsTableComponent
   ],
   imports: [
     BrowserModule,

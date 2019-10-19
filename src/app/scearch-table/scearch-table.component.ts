@@ -17,6 +17,15 @@ export class ScearchTableComponent implements OnInit {
   constructor(private service:ScearchserviceService,private messageservice:MessageService) { }
 
   ngOnInit() {
+    this.cols = [
+      { field: "id", header: "ID" },
+      { field: "transactionDate", header: "Transaction Date" },
+      { field: "totalAmount", header: "Total Amount" },
+      { field: "transactionType", header: "Transaction Type" },
+      { field: "description", header: "Desccription" },
+      { field: "currency", header: "Currency" },
+      { field: "operationType", header: "Operation Type" }
+    ];
   }
 
   changedatetostring(date: Date ) {
@@ -24,9 +33,13 @@ export class ScearchTableComponent implements OnInit {
     return this.converteddate;
   }
   postScearch(){
+    if(this.findbydate!=null){
     this.sceachtableObj.date=this.changedatetostring(this.findbydate);
+    }
+    else{
     this.service.search(this.sceachtableObj).subscribe(
       data => {
+        console.log(data);
       
       },
       error => {
@@ -39,6 +52,6 @@ export class ScearchTableComponent implements OnInit {
       }
     );
   }
-  
+}
 
 }

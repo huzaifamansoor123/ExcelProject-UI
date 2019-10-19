@@ -19,10 +19,14 @@ export class UserListComponent implements OnInit {
   newUser:boolean;
   userObj: User = new User();
   car= true;
+  currentUserEmail:any;
+ 
+  userTypeCurrent;
+  Rowemail;
   constructor(private userService: UserService,private messageService: MessageService,private router : Router) { }
 
   ngOnInit() {
-
+    this.checkUserType();
     this.usertypes=[
       {label:"ADMIN", value:"ADMIN"},
       {label:"USER",value:"USER"}
@@ -46,6 +50,7 @@ export class UserListComponent implements OnInit {
     this.showLoading = true;
     this.userTableData = [];
     this.userService.getUser().subscribe(response=>{
+
       this.showLoading = false;
       console.log(response)
       response.map(d=>
@@ -82,6 +87,7 @@ export class UserListComponent implements OnInit {
   
 
   deleteUser(){
+    
     let id = this.userTableData[this.userTableData.indexOf(this.selectedUser)]['id'];
     this.userService.deleteUser(id).subscribe(d=>{
       this.getUsers();
@@ -103,6 +109,8 @@ export class UserListComponent implements OnInit {
   onRowSelect(event){
     this.newUser = false;
     this.userObj = event.data;
+    this.Rowemail = this.userTableData[this.userTableData.indexOf(this.selectedUser)]['email'];
+    console.log(this.Rowemail);
     this.displayDialog = true;
   }
 
@@ -110,6 +118,10 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['userManagementform'])
   }
 
+  checkUserType(){
+     this.userTypeCurrent=sessionStorage.getItem("userType"); 
+     this.currentUserEmail = sessionStorage.getItem('email');
+  }
 
 
 

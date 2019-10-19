@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  userTypeCurrent: string;
 
   constructor(private http:HttpClient) { }
 
@@ -36,6 +37,17 @@ export class UserService {
   }
 
   public deleteUser(id): Observable<any>{
-    return this.http.get(environment.baseUrl+'token/delete/'+id);
+    return this.http.delete(environment.baseUrl+'token/delete/'+id);
+  }
+
+  checkUserType(){
+    this.userTypeCurrent=sessionStorage.getItem("userType"); 
+ }
+  public getAllLogs(): Observable<any> {
+    return this.http.get(environment.baseUrl +"getalllogs");
+  }
+
+  public postUser(obj:Object):Observable<any>{
+    return this.http.post(environment.baseUrl+"postLogs",obj)
   }
 }
