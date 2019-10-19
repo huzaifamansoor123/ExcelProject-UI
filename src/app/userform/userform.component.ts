@@ -72,22 +72,21 @@ export class UserformComponent implements OnInit {
   }
 
   save() {
+
     console.log(this.data);
     if (this.id != 0 && this.id != null) {
       this.dataService.updatedatabyid(this.data,this.id).subscribe(
         response => {
           console.log('', response);
           this.messageService.add({
-            key: 'u',
-            severity: 'info',
+              severity: 'success',
             summary: 'Data updated successfully',
             detail: 'Added'
           });
         },
         error => {
           this.messageService.add({
-            key: 'd',
-            severity: 'error',
+           severity: 'error',
             summary: 'Failed',
             detail: 'Something Went Wrong'
           });
