@@ -32,7 +32,6 @@ const routes: Routes = [
   canActivate: [AuthGuard],
   component: ScearchTableComponent },
   { path: 'form',
-  canActivate: [AuthGuard],
   component: UserformComponent },
   { path: 'usertable',
   canActivate: [AuthGuard],

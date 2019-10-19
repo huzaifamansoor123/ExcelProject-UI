@@ -19,15 +19,16 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {CalendarModule} from 'primeng/calendar';
+import { CalendarModule } from 'primeng/calendar';
 import { LoginComponent } from './login/login.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MenuItem, MessageService } from 'primeng/api';
+import { CheckboxModule } from 'primeng/checkbox';
 
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { UserListComponent } from './user-list/user-list.component';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 // import { CalendarModule } from 'primeng/calendar';
 import { UserformComponent } from './userform/userform.component';
 import { UsertableComponent } from './usertable/usertable.component';
@@ -35,9 +36,12 @@ import { NoopInterceptor } from './request.intercept';
 import { AuthGuard } from './auth.guard';
 import { UserLogsTableComponent } from './user-logs-table/user-logs-table.component';
 
-
 @NgModule({
-  declarations: [AppComponent, ScearchTableComponent, UserformComponent, UsertableComponent,
+  declarations: [
+    AppComponent,
+    ScearchTableComponent,
+    UserformComponent,
+    UsertableComponent,
     LoginComponent,
     UserFormComponent,
     SidenavComponent,
@@ -45,7 +49,6 @@ import { UserLogsTableComponent } from './user-logs-table/user-logs-table.compon
     UserLogsTableComponent
   ],
   imports: [
-    
     BrowserModule,
     CalendarModule,
     ReactiveFormsModule,
@@ -64,8 +67,8 @@ import { UserLogsTableComponent } from './user-logs-table/user-logs-table.compon
     TabMenuModule,
     TableModule,
     CardModule,
+    CheckboxModule,
     ProgressSpinnerModule
-    
   ],
   providers: [
     MessageService,
