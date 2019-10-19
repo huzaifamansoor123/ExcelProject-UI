@@ -7,6 +7,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserformComponent } from './userform/userform.component';
 import { UsertableComponent } from './usertable/usertable.component';
 import { AuthGuard } from './auth.guard';
+import { UserLogsTableComponent } from './user-logs-table/user-logs-table.component';
 
 
 
@@ -35,7 +36,10 @@ const routes: Routes = [
   component: UserformComponent },
   { path: 'usertable',
   canActivate: [AuthGuard],
-  component: UsertableComponent }
+  component: UsertableComponent },
+   { path: 'userLogs',
+  canActivate: [AuthGuard],
+  component: UserLogsTableComponent }
 
 ];
 
