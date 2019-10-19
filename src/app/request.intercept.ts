@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class NoopInterceptor implements HttpInterceptor {
 
-  
+  // constructor(private router:Router){}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       // console.log("hello interceptor");
 
@@ -21,10 +21,10 @@ export class NoopInterceptor implements HttpInterceptor {
         const changedReq = req.clone({headers: req.headers.set('Authorization', sessionStorage.getItem('token'))});
         return next.handle(changedReq);
       }else{
-        //sessionStorage.clear();
-        //this.router.navigate(['']);
+        // // sessionStorage.clear();
+        // this.router.navigate(['']);
          const changedReq = req.clone({headers: req.headers.set('Content-Type', 'application/json')});
-        //const changedReq = req.clone();
+        // const changedReq = req.clone();
          return next.handle(changedReq);
       }
 
