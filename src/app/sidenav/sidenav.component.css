@@ -15,12 +15,13 @@
     .main-menu:hover,nav.main-menu.expanded {
     width:255px;
     overflow:visible;
+    position: fixed;
     }
     
     .main-menu {
     background: rgb(40, 41, 44);
     border-right:1px solid #e5e5e5;
-    position:absolute;
+    /* position:absolute; */
     top:0;
     bottom:0;
     height:100%;
@@ -31,6 +32,7 @@
     transition: .5s ;
     /* -webkit-transform:translateZ(0) scale(1,1); */
     z-index: 1;
+    position: fixed;
     }
     
     .main-menu>ul {
