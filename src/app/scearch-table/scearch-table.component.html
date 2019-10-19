@@ -3,7 +3,7 @@
     <br>
     <br>
     <p-toast [showTransitionOptions]="'4ms'"></p-toast>
-    <p-card header="" [style]="{  width: '90%',
+    <!-- <p-card header="" [style]="{  width: '90%',
     'font-size': '20px',
     'text-align': 'center',
     color: 'green',
@@ -71,13 +71,15 @@
         </div>
 
     </p-card>
+    <br> -->
     <br>
     <p-card header="" [style]="{  width: '90%',
     'font-size': '20px',
     'text-align': 'center',
     color: 'green',
     'margin-left':'5.5%',
-    'margin-right':'5.5%'
+    'margin-right':'5.5%',
+    'margin-top':'2%'
     }">
         <p-toast> </p-toast>
         <div class="horizontal_scroll_div">
@@ -98,7 +100,7 @@
                         </ng-template>
                         <ng-template pTemplate="header" let-columns>
                             <tr>
-                                <th  *ngFor="let col of columns" style="text-align: center;word-wrap:normal;">
+                                <th  *ngFor="let col of columns" style="text-align: center;word-wrap:normal;font-size:12px ">
                                     {{ col.header }}
                                 </th>
                                 <th style="text-align: center;">

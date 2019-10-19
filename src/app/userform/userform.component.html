@@ -1,4 +1,3 @@
-
 <app-sidenav></app-sidenav>
 <br />
 <br />
@@ -7,7 +6,7 @@
 
 
 <div class="ui-g-8">
-  <p-toast></p-toast>
+  
   <div class="ui-lg-5 ui-md-5 ui-sm-12">
     <button
       pButton
@@ -33,6 +32,7 @@
           height: '30% !important'
         }"
       >
+      <p-toast ></p-toast>
         <hr />
         <form #myForm="ngForm">
           <h2 style="margin-right: 85%;">Contact Details:</h2>
@@ -56,7 +56,7 @@
                   type="text"
                   pInputText
                   placeholder="email Address 1"
-                  name="email"
+                  name="email1"
                   [(ngModel)]="data.email1"
                   ngModel
                 />
@@ -81,7 +81,7 @@
                 <input
                   pInputText
                   placeholder="Phone number 1"
-                  name="phonenumber1"
+                  name="phoneNo1"
                   (keypress)="numberOnly($event)"
                   [(ngModel)]="data.phoneNo1"
                   ngModel
@@ -93,7 +93,7 @@
                 <input
                   pInputText
                   placeholder="Phone number 2"
-                  name="phonenumber2"
+                  name="phoneNo2"
                   (keypress)="numberOnly($event)"
                   [(ngModel)]="data.phoneNo2"
                   ngModel
@@ -118,7 +118,7 @@
                   type="text"
                   pInputText
                   placeholder="Nationality"
-                  name="Nationality"
+                  name="nationality"
                   [(ngModel)]="data.nationality"
                   ngModel
                 />
