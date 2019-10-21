@@ -16,8 +16,22 @@ export class ScearchserviceService {
   public getalldata():Observable<any>{
     return this.http.get(environment.baseUrl+"api/data/");
   }
-  public deletedata(id):Observable<any>{
-    return this.http.delete(environment.baseUrl+"api/data/"+id)
+
+  public getActive(): Observable<any> {
+    return this.http.get(environment.baseUrl + "api/data/active");
+  }
+  public deletedata(id:any,userType:any):Observable<any>{
+    if(userType=="ADMIN"){
+      return this.http.delete(environment.baseUrl + "api/data/" + id)
+    }
+    else{
+      return this.http.delete(environment.baseUrl + "api/data/user/" + id)
+    }
+   
+  }
+
+  public reActive(id):Observable<any>{
+    return this.http.delete(environment.baseUrl + "api/data/reactive/" + id)
   }
 
   public getdataById(id):Observable<any>{

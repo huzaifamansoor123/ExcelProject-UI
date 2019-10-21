@@ -38,7 +38,8 @@ const routes: Routes = [
   component: UsertableComponent },
   {path:'form/:id',component:UserformComponent},
 
-   { path: 'userLogs',
+  {
+    path: 'userlogs/:id',
   canActivate: [AuthGuard],
   component: UserLogsTableComponent }
 

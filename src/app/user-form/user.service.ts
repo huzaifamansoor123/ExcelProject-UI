@@ -50,4 +50,8 @@ export class UserService {
   public postUser(obj:Object):Observable<any>{
     return this.http.post(environment.baseUrl+"postLogs",obj)
   }
+
+  public getActivityLogs(id:any):Observable<any>{
+    return this.http.get(environment.baseUrl +"api/data/activityLogs/"+id);
+  }
 }
