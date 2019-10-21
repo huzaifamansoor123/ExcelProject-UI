@@ -1,7 +1,7 @@
 <app-sidenav></app-sidenav>
 
 
-<div class="ui-g-8">
+<div class="ui-g-8" style="margin-left:200px;">
   
 <!-- <div class="ui-g-8">
   <p-toast></p-toast>
@@ -172,11 +172,11 @@
             <div class="ui-g-12 ui-md-4">
               <div class="ui-inputgroup">
                 <p-calendar [ngStyle]="{ width: '100%' }"
-                  [(ngModel)]="data.dateOfFC"
+                  [(ngModel)]="data.dateOffc"
                   [monthNavigator]="true"
                   [yearNavigator]="true"
                   yearRange="1947:2090"
-                  name="dateOfFC"
+                  name="dateOffc"
                   showButtonBar="true"
                   dateFormat="dd/mm/yy"
                   placeholder="Date of first Contact">
@@ -188,8 +188,8 @@
                 <input type="text"
                   pInputText
                   placeholder="First Point of Contact"
-                  name="FirstPointOfContact"
-                  [(ngModel)]="data.FirstPointOfContact" />
+                  name="firstPointOfContact"
+                  [(ngModel)]="data.firstPointOfContact" />
               </div>
             </div>
 
