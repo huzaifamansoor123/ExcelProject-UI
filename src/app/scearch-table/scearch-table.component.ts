@@ -74,8 +74,7 @@ getalldata(){
     {field: 'oCliftonPlace', header: 'Clifton Place' },
     {field: 'oKaiVillas', header: 'Kai Villas' },
     {field: 'oAddyVillas', header: 'Addy Villas' },
-    {field: 'total', header: 'Total' },
-   
+    {field: 'total', header: 'Total' },   
 
     {field: 'tEmbassyGardens', header: 'Embassy Gardens' },
     {field: 'tTheResidence', header: 'The Residence' },
@@ -86,8 +85,7 @@ getalldata(){
     
     {field: 'activityStatus', header: 'Activity Status' }
    
-    
- 
+
  
    
   ];
