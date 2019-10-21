@@ -21,19 +21,29 @@
             <div class="scroll_table_div b">
                 <div class="table_section">
                     <p-table #dt [columns]="cols" [value]="data" [paginator]="true" [rows]="10"
-                        [totalRecords]="totalRecords ">
+                     [autoLayout]="true" >
+
                         <ng-template pTemplate="caption">
-                            <div class="ui-lg-offset-1 ui-lg-8">
+                               
+                                <button type="button" pButton label="Export" (click)="dt.exportCSV()" style="float:left"></button>
+                            <div class="ui-lg-offset-2 ui-lg-8">
                                 <h2 style="font-weight:bold;color:rgb(22, 92, 124);">SEARCH LIST</h2>
                                 <!-- <hr style="background-color:rgb(22, 92, 124);height:3px;" /> -->
                             </div>
                             <div style="text-align: left">
                                 <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
                                 <input type="text" pInputText size="50" placeholder="Global Filter"
-                                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto" />
+                                    (input)="dt.filterGlobal($event.target.value, 'contains')"  />
                             </div>
                         </ng-template>
                         <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                        <th colspan="9">CONTACT DETAILS</th>
+                                        <th colspan="3">STATUS</th>
+                                        <th colspan="3">SOURCE</th>
+                                        <th colspan="8">OWNER</th>
+                                        <th colspan="8">TENANT</th>
+                                    </tr>
                             <tr>
                                 <th  *ngFor="let col of columns" style="text-align: center;word-wrap:normal;font-size:12px ">
                                     {{ col.header }}
@@ -47,7 +57,7 @@
 
                         <ng-template pTemplate="body" let-rowData let-columns="columns">
                             <tr [pSelectableRow]="rowData">
-                                <td *ngFor="let col of columns" style="overflow:auto">
+                                <td *ngFor="let col of columns" >
                                     {{ rowData[col.field] }}
                                 </td>
                                 <td>
