@@ -10,3 +10,8 @@
   width:1500px !important;
   /* text-align: center */
 }
+
+button{
+  font-size: 10px !important;
+  font-weight: bolder !important;
+}

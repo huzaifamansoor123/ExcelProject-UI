@@ -11,127 +11,251 @@ import { Router } from '@angular/router';
 })
 export class ScearchTableComponent implements OnInit {
 
-  data:any[];
-  cols:any[];
-  converteddate:any;
-  sceachtableObj:Scearch=new Scearch();
-  findbydate:Date;
-  constructor(private service:ScearchserviceService,private messageservice:MessageService,private router:Router) { }
+  data: any[];
+  cols: any[];
+  converteddate: any;
+  sceachtableObj: Scearch = new Scearch();
+  findbydate: Date;
+  userTypeCurrent: string;
+  currentUserEmail: string;
+  username: string;
+  reactive: boolean = false;
+  delBtn: boolean = true;
+  constructor(private service: ScearchserviceService, private messageservice: MessageService, private router: Router) { }
 
   ngOnInit() {
-  this.getalldata();
+
+
+    this.checkUserType();
+    if (this.userTypeCurrent == "ADMIN") {
+      this.getalldata();
+    }
+    else {
+      this.getActiveData()
+    }
+
+
   }
 
-  changedatetostring(date: Date ) {
+  changedatetostring(date: Date) {
     this.converteddate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     return this.converteddate;
   }
-  postScearch(){
-    if(this.findbydate!=null){
-    this.sceachtableObj.date=this.changedatetostring(this.findbydate);
+  postScearch() {
+    if (this.findbydate != null) {
+      this.sceachtableObj.date = this.changedatetostring(this.findbydate);
     }
-    else{
-    this.service.search(this.sceachtableObj).subscribe(
+    else {
+      this.service.search(this.sceachtableObj).subscribe(
+        data => {
+          console.log(data);
+
+        },
+        error => {
+          console.log(error);
+          this.messageservice.add({
+            severity: 'error',
+            summary: 'Error Found',
+            detail: 'Something went wrong check your internet connection '
+          });
+        }
+      );
+    }
+  }
+
+
+
+  getalldata() {
+    this.cols = [
+      { field: 'id', header: 'ID' },
+      { field: 'name', header: 'Name' },
+      { field: 'nationality', header: 'Nationality' },
+      { field: 'email1', header: 'Email1' },
+      { field: 'email2', header: 'Email2' },
+      { field: 'details', header: 'Details' },
+      // {field: 'dateOffc', header: 'DateOffC' },
+      { field: 'company', header: 'Company' },
+      { field: 'activityStatus', header: 'Activity Status' },
+      { field: 'countryOfResidence', header: 'Country Of Residence' },
+      // {field: 'phone1', header: 'Phone1' },
+      // {field: 'phone2', header: 'Phone2' },
+      { field: 'status1', header: 'Status1' },
+      { field: 'status2', header: 'Status2' },
+      { field: 'status3', header: 'Status3' }
+
+
+    ];
+
+    this.data = [];
+    this.service.getalldata().subscribe(response => {
+
+
+      console.log(response)
+      response.map(d =>
+        this.data.push({
+          id: d.id,
+          name: d.name,
+          nationality: d.nationality,
+          email1: d.email1,
+          email2: d.email2,
+          details: d.details,
+          dateOffc: d.dateOffc,
+          company: d.company,
+          activityStatus: d.activityStatus,
+          countryOfResidence: d.countryOfResidence,
+          phone1: d.phone1,
+          phone2: d.phone2,
+          status1: d.status1,
+          status2: d.status2,
+          status3: d.status3
+
+
+
+
+        })
+
+      )
+
+      let status = (response.map(d => d.activityStatus))
+      if (status == "Active") {
+        this.reactive = false;
+        this.delBtn = true;
+      }
+      else if (status == "InActive") {
+        this.delBtn = false;
+        this.reactive = true;
+      }
+    })
+  }
+
+
+  getActiveData() {
+
+    this.cols = [
+      { field: 'id', header: 'ID' },
+      { field: 'name', header: 'Name' },
+      { field: 'nationality', header: 'Nationality' },
+      { field: 'email1', header: 'Email1' },
+      { field: 'email2', header: 'Email2' },
+      { field: 'details', header: 'Details' },
+      // {field: 'dateOffc', header: 'DateOffC' },
+      { field: 'company', header: 'Company' },
+      { field: 'activityStatus', header: 'Activity Status' },
+      { field: 'countryOfResidence', header: 'Country Of Residence' },
+      // {field: 'phone1', header: 'Phone1' },
+      // {field: 'phone2', header: 'Phone2' },
+      { field: 'status1', header: 'Status1' },
+      { field: 'status2', header: 'Status2' },
+      { field: 'status3', header: 'Status3' }
+
+
+    ];
+
+    this.data = [];
+    this.service.getActive().subscribe(response => {
+
+
+      console.log(response)
+      response.map(d =>
+        this.data.push({
+          id: d.id,
+          name: d.name,
+          nationality: d.nationality,
+          email1: d.email1,
+          email2: d.email2,
+          details: d.details,
+          dateOffc: d.dateOffc,
+          company: d.company,
+          activityStatus: d.activityStatus,
+          countryOfResidence: d.countryOfResidence,
+          phone1: d.phone1,
+          phone2: d.phone2,
+          status1: d.status1,
+          status2: d.status2,
+          status3: d.status3
+
+
+
+
+        })
+
+      )
+
+
+    })
+  }
+
+  deletedatabyid(id: any) {
+    this.service.deletedata(id, this.userTypeCurrent).subscribe(
       data => {
-        console.log(data);
-      
+
+
+        // console.log(data);
+        if (data) {
+          this.reactive = true;
+          this.delBtn = false;
+          this.getalldata();
+
+          this.messageservice.add({
+            severity: "success",
+            summary: "Succesfully",
+            detail: " succesfully deleted!"
+          });
+        }
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this.messageservice.add({
-          severity: 'error',
-          summary: 'Error Found',
-          detail: 'Something went wrong check your internet connection '
+          severity: "error",
+          summary: "Error Found",
+          detail: "Something went wrong check your internet connection "
         });
       }
     );
+
+
   }
-}
+
+  reActiveDataById(id: any) {
+    this.service.reActive(id).subscribe(
+      data => {
 
 
+        // console.log(data);
+        if (data) {
+          this.reactive = false;
+          this.delBtn = true;
+          this.getalldata();
 
-getalldata(){
-  this.cols = [
-    { field: 'id', header: 'ID' },
-    {field: 'name', header: 'Name' },
-    {field: 'nationality', header: 'Nationality' },
-    {field: 'email1', header: 'Email1' },
-    { field: 'email2', header: 'Email2' },
-    {field: 'details', header: 'Details' },
-    // {field: 'dateOffc', header: 'DateOffC' },
-    {field: 'company', header: 'Company' },
-    { field: 'activityStatus', header: 'Activity Status' },
-    {field: 'countryOfResidence', header: 'Country Of Residence' },
-    // {field: 'phone1', header: 'Phone1' },
-    // {field: 'phone2', header: 'Phone2' },
-    { field: 'status1', header: 'Status1' },
-    {field: 'status2', header: 'Status2' },
-    {field: 'status3', header: 'Status3' }
- 
-   
-  ];
-
-  this.data = [];
-  this.service.getalldata().subscribe(response=>{
-
-    
-    console.log(response)
-    response.map(d=>
-      this.data.push({
-        id:d.id,
-        name:d.name,
-        nationality:d.nationality,
-        email1:d.email1,
-        email2:d.email2,
-        details:d.details,
-        dateOffc:d.dateOffc,
-        company:d.company,
-        activityStatus:d.activityStatus,
-        countryOfResidence:d.countryOfResidence,
-        phone1:d.phone1,
-        phone2:d.phone2,
-        status1:d.status1,
-        status2:d.status2,
-        status3:d.status3
+          this.messageservice.add({
+            severity: "success",
+            summary: "Succesfully",
+            detail: " succesfully Reactivated!"
+          });
+        }
+      },
+      error => {
+        // console.log(error);
+        this.messageservice.add({
+          severity: "error",
+          summary: "Error Found",
+          detail: "Something went wrong check your internet connection "
+        });
+      }
+    );
 
 
-
-
-      })
-      )
-  })
-}
-
-deletedatabyid(id:any){
-  this.service.deletedata(id).subscribe(
-    data=>{
-
-    // console.log(data);
-    if(data){
-      this.getalldata();
-    
-    this.messageservice.add({
-      severity: "success",
-      summary: "Succesfully",
-      detail: " succesfully deleted!"
-    });
   }
-  },
-  error => {
-    // console.log(error);
-    this.messageservice.add({
-      severity: "error",
-      summary: "Error Found",
-      detail: "Something went wrong check your internet connection "
-    });
+
+
+
+  updatebyid(id: any) {
+    this.router.navigate(['form/' + id]);
+
   }
-  );
-  
-
-}
-updatebyid(id:any){
-  this.router.navigate(['form/'+id]);
-  
-    }
-
+  checkUserType() {
+    this.userTypeCurrent = sessionStorage.getItem('userType');
+    this.currentUserEmail = sessionStorage.getItem('email');
+    this.username = sessionStorage.getItem('username');
+  }
 }
