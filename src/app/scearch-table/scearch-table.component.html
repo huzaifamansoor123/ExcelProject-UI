@@ -17,6 +17,7 @@
     'margin-right':'5.5%',
     'margin-top':'2%'
     }">
+
       <p-toast> </p-toast>
       <div class="horizontal_scroll_div">
         <div class="scroll_table_div b">
@@ -26,9 +27,16 @@
               [value]="data"
               [paginator]="true"
               [rows]="10"
-              [totalRecords]="totalRecords ">
+              [autoLayout]="true">
+
               <ng-template pTemplate="caption">
-                <div class="ui-lg-offset-1 ui-lg-8">
+
+                <button type="button"
+                  pButton
+                  label="Export"
+                  (click)="dt.exportCSV()"
+                  style="float:left"></button>
+                <div class="ui-lg-offset-2 ui-lg-8">
                   <h2 style="font-weight:bold;color:rgb(22, 92, 124);">SEARCH LIST</h2>
                   <!-- <hr style="background-color:rgb(22, 92, 124);height:3px;" /> -->
                 </div>
@@ -39,12 +47,19 @@
                     pInputText
                     size="50"
                     placeholder="Global Filter"
-                    (input)="dt.filterGlobal($event.target.value, 'contains')"
-                    style="width:auto" />
+                    (input)="dt.filterGlobal($event.target.value, 'contains')" />
                 </div>
               </ng-template>
               <ng-template pTemplate="header"
                 let-columns>
+                <tr>
+                  <th colspan="9">CONTACT DETAILS</th>
+                  <th colspan="3">STATUS</th>
+                  <th colspan="3">SOURCE</th>
+                  <th colspan="8">OWNER</th>
+                  <th colspan="8">TENANT</th>
+                  <th colspan="1">ACTIONS</th>
+                </tr>
                 <tr>
                   <th *ngFor="let col of columns"
                     style="text-align: center;word-wrap:normal;font-size:12px ">
@@ -61,8 +76,9 @@
                 let-rowData
                 let-columns="columns">
                 <tr [pSelectableRow]="rowData">
-
-
+                  <!-- <td *ngFor="let col of columns">
+                    {{ rowData[col.field] }}
+                  </td> -->
                   <div *ngIf="userTypeCurrent=='ADMIN';then adminField;else userField"></div>
 
 
@@ -76,7 +92,7 @@
                   <ng-template #userField>
                     <td *ngFor="let col of columns"
                       style="overflow:auto">
-                        {{ rowData[col.field] }}
+                      {{ rowData[col.field] }}
                     </td>
                   </ng-template>
 
@@ -89,14 +105,14 @@
 
                       <div *ngIf="rowData['activityStatus']=='Active'">
                         <button pButton
-                        class="pbutton"
+                          class="pbutton"
                           [ngStyle]="{width:'100%',margin:'8px'}"
                           type="button"
                           label="Delete"
                           class="ui-button-danger"
                           (click)="deletedatabyid(rowData['id']); "></button>
                       </div>
-                      
+
 
 
                       <div *ngIf="rowData['activityStatus']=='InActive'">

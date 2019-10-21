@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Scearch } from './scearch';
 import { ScearchserviceService } from './scearchservice.service';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
 
 @Component({
   selector: 'app-scearch-table',
@@ -21,6 +21,7 @@ export class ScearchTableComponent implements OnInit {
   username: string;
   reactive: boolean = false;
   delBtn: boolean = true;
+  //totalRecords:number = 32;
   constructor(private service: ScearchserviceService, private messageservice: MessageService, private router: Router) { }
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class ScearchTableComponent implements OnInit {
 
     this.checkUserType();
     if (this.userTypeCurrent == "ADMIN") {
-      this.getalldata();
+      this.getalldata("ADMIN");
     }
     else {
       this.getActiveData()
@@ -65,56 +66,58 @@ export class ScearchTableComponent implements OnInit {
 
 
 
-  getalldata() {
+
+  getActiveData() {
+
+
+
     this.cols = [
       { field: 'id', header: 'ID' },
       { field: 'name', header: 'Name' },
-      { field: 'nationality', header: 'Nationality' },
       { field: 'email1', header: 'Email1' },
       { field: 'email2', header: 'Email2' },
-      { field: 'details', header: 'Details' },
-      // {field: 'dateOffc', header: 'DateOffC' },
+      { field: 'phoneNo1', header: 'Phone1' },
+      { field: 'phoneNo2', header: 'Phone2' },
       { field: 'company', header: 'Company' },
-      { field: 'activityStatus', header: 'Activity Status' },
+      { field: 'nationality', header: 'Nationality' },
       { field: 'countryOfResidence', header: 'Country Of Residence' },
-      // {field: 'phone1', header: 'Phone1' },
-      // {field: 'phone2', header: 'Phone2' },
-      { field: 'status1', header: 'Status1' },
-      { field: 'status2', header: 'Status2' },
-      { field: 'status3', header: 'Status3' }
+      { field: 'status1', header: 'Status 1' },
+      { field: 'status2', header: 'Status 2' },
+      { field: 'status3', header: 'Status 3' },
+      { field: 'dateOffc', header: 'Date of first Contact' },
+      { field: 'firstPointOfContact', header: 'First point of contact' },
+      { field: 'details', header: 'Details (eg Event)' },
+      { field: 'oEmbassyGardens', header: 'Embassy Gardens' },
+      { field: 'oTheGallery', header: 'The Gallery' },
+      { field: 'oTheResidence', header: 'The Residence' },
+      { field: 'oCliftonCourt', header: 'Clifton Court' },
+      { field: 'oCliftonPlace', header: 'Clifton Place' },
+      { field: 'oKaiVillas', header: 'Kai Villas' },
+      { field: 'oAddyVillas', header: 'Addy Villas' },
+      { field: 'total', header: 'Total' },
+
+      { field: 'tEmbassyGardens', header: 'Embassy Gardens' },
+      { field: 'tTheGallery', header: 'The Gallery' },
+
+      { field: 'tTheResidence', header: 'The Residence' },
+      { field: 'tCliftonCourt', header: 'Clifton Court' },
+      { field: 'tCLiftonPalace', header: 'Clifton Place' },
+      { field: 'tKaiVillas', header: 'Kai Villas' },
+      { field: 'tAddyVillas', header: 'Addy Villas' },
+
+      { field: 'activityStatus', header: 'Activity Status' }
+
+
 
 
     ];
 
+
     this.data = [];
-    this.service.getalldata().subscribe(response => {
-
-
+    this.service.getActive().subscribe(response => {
+      this.data = [];
       console.log(response)
-      response.map(d =>
-        this.data.push({
-          id: d.id,
-          name: d.name,
-          nationality: d.nationality,
-          email1: d.email1,
-          email2: d.email2,
-          details: d.details,
-          dateOffc: d.dateOffc,
-          company: d.company,
-          activityStatus: d.activityStatus,
-          countryOfResidence: d.countryOfResidence,
-          phone1: d.phone1,
-          phone2: d.phone2,
-          status1: d.status1,
-          status2: d.status2,
-          status3: d.status3
-
-
-
-
-        })
-
-      )
+      this.data = response;
 
       let status = (response.map(d => d.activityStatus))
       if (status == "Active") {
@@ -125,61 +128,8 @@ export class ScearchTableComponent implements OnInit {
         this.delBtn = false;
         this.reactive = true;
       }
-    })
-  }
 
 
-  getActiveData() {
-
-    this.cols = [
-      { field: 'id', header: 'ID' },
-      { field: 'name', header: 'Name' },
-      { field: 'nationality', header: 'Nationality' },
-      { field: 'email1', header: 'Email1' },
-      { field: 'email2', header: 'Email2' },
-      { field: 'details', header: 'Details' },
-      // {field: 'dateOffc', header: 'DateOffC' },
-      { field: 'company', header: 'Company' },
-      { field: 'activityStatus', header: 'Activity Status' },
-      { field: 'countryOfResidence', header: 'Country Of Residence' },
-      // {field: 'phone1', header: 'Phone1' },
-      // {field: 'phone2', header: 'Phone2' },
-      { field: 'status1', header: 'Status1' },
-      { field: 'status2', header: 'Status2' },
-      { field: 'status3', header: 'Status3' }
-
-
-    ];
-
-    this.data = [];
-    this.service.getActive().subscribe(response => {
-
-
-      console.log(response)
-      response.map(d =>
-        this.data.push({
-          id: d.id,
-          name: d.name,
-          nationality: d.nationality,
-          email1: d.email1,
-          email2: d.email2,
-          details: d.details,
-          dateOffc: d.dateOffc,
-          company: d.company,
-          activityStatus: d.activityStatus,
-          countryOfResidence: d.countryOfResidence,
-          phone1: d.phone1,
-          phone2: d.phone2,
-          status1: d.status1,
-          status2: d.status2,
-          status3: d.status3
-
-
-
-
-        })
-
-      )
 
 
     })
@@ -189,12 +139,12 @@ export class ScearchTableComponent implements OnInit {
     this.service.deletedata(id, this.userTypeCurrent).subscribe(
       data => {
 
-
+        this.data = []
         // console.log(data);
         if (data) {
           this.reactive = true;
           this.delBtn = false;
-          this.getalldata();
+          this.getalldata(this.userTypeCurrent);
 
           this.messageservice.add({
             severity: "success",
@@ -225,7 +175,7 @@ export class ScearchTableComponent implements OnInit {
         if (data) {
           this.reactive = false;
           this.delBtn = true;
-          this.getalldata();
+          this.getalldata("ADMIN");
 
           this.messageservice.add({
             severity: "success",
@@ -244,8 +194,84 @@ export class ScearchTableComponent implements OnInit {
       }
     );
 
+  }
+
+
+  getalldata(userTypeCurrent: any) {
+
+    this.cols = [
+      { field: 'id', header: 'ID' },
+      { field: 'name', header: 'Name' },
+      { field: 'email1', header: 'Email1' },
+      { field: 'email2', header: 'Email2' },
+      { field: 'phoneNo1', header: 'Phone1' },
+      { field: 'phoneNo2', header: 'Phone2' },
+      { field: 'company', header: 'Company' },
+      { field: 'nationality', header: 'Nationality' },
+      { field: 'countryOfResidence', header: 'Country Of Residence' },
+      { field: 'status1', header: 'Status 1' },
+      { field: 'status2', header: 'Status 2' },
+      { field: 'status3', header: 'Status 3' },
+      { field: 'dateOffc', header: 'Date of first Contact' },
+      { field: 'firstPointOfContact', header: 'First point of contact' },
+      { field: 'details', header: 'Details (eg Event)' },
+      { field: 'oEmbassyGardens', header: 'Embassy Gardens' },
+      { field: 'oTheGallery', header: 'The Gallery' },
+      { field: 'oTheResidence', header: 'The Residence' },
+      { field: 'oCliftonCourt', header: 'Clifton Court' },
+      { field: 'oCliftonPlace', header: 'Clifton Place' },
+      { field: 'oKaiVillas', header: 'Kai Villas' },
+      { field: 'oAddyVillas', header: 'Addy Villas' },
+      { field: 'total', header: 'Total' },
+
+      { field: 'tEmbassyGardens', header: 'Embassy Gardens' },
+      { field: 'tTheGallery', header: 'The Gallery' },
+
+      { field: 'tTheResidence', header: 'The Residence' },
+      { field: 'tCliftonCourt', header: 'Clifton Court' },
+      { field: 'tCLiftonPalace', header: 'Clifton Place' },
+      { field: 'tKaiVillas', header: 'Kai Villas' },
+      { field: 'tAddyVillas', header: 'Addy Villas' },
+
+      { field: 'activityStatus', header: 'Activity Status' }
+
+
+
+
+    ];
+
+
+    this.data = [];
+    if (userTypeCurrent == "ADMIN") {
+      this.service.getalldata().subscribe(response => {
+
+        console.log(response)
+        this.data = response;
+
+        let status = (response.map(d => d.activityStatus))
+        if (status == "Active") {
+          this.reactive = false;
+          this.delBtn = true;
+        }
+        else if (status == "InActive") {
+          this.delBtn = false;
+          this.reactive = true;
+        }
+
+      });
+
+    }
+    else {
+
+      this.getActiveData()
+
+    }
+
 
   }
+
+
+
 
 
 

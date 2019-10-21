@@ -10,8 +10,8 @@ export class Data {
   status1: string;
   status2: string;
   status3: string;
-  dateOfFC: string;
-  FirstPointOfContact: string;
+  dateOffc: Date;
+  firstPointOfContact: string;
   details: string;
 
   oEmbassyGardens: boolean = false;

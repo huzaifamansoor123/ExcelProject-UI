@@ -41,7 +41,7 @@ export class UserListComponent implements OnInit {
       { field: "id", header: "Id" },
       { field: "name", header: "Name" },
       { field: "email", header: "Email Address" },
-      { field: "userType", header: "Email Address" }
+      { field: "userType", header: "User Type" }
 
     ];
   }
