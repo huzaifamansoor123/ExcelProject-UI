@@ -6,18 +6,16 @@
 <div *ngIf="userTypeCurrent == 'ADMIN'">
   <div class="ui-g-12">
     <div class="ui-g-offset-9 ui-lg-2 ui-md-2 ui-sm-12">
-      <button
-        pButton
+      <button pButton
         type="button"
         style="width:100%;margin-left:10% ;background-color: rgb(22, 92, 124)"
         label="Add new User"
-        (click)="routeToAddNewUser()"
-      ></button>
+        (click)="routeToAddNewUser()"></button>
     </div>
   </div>
-  <div class="ui-g" style="width: 100%">
-    <p-card
-      header=""
+  <div class="ui-g"
+    style="width: 100%">
+    <p-card header=""
       [style]="{
         width: '90%',
         'font-size': '20px',
@@ -25,8 +23,7 @@
         color: 'green',
         'margin-left': '5.5%',
         'margin-right': '5.5%'
-      }"
-    >
+      }">
       <div class="ui-g">
         <!-- <h2 style="font-weight:bold;color: rgb(22, 92, 124);text-align: left ">
           User List
@@ -34,44 +31,44 @@
         <!-- <hr style="background-color:rgb(22, 92, 124); height:3px;" /> -->
         <!-- </div> -->
       </div>
-      <p-table
-        #data
+      <p-table #data
         [columns]="cols"
         [value]="userTableData"
         selectionMode="single"
         [(selection)]="selectedUser"
         (onRowSelect)="onRowSelect($event)"
         [paginator]="true"
-        [rows]="15"
-      >
+        [rows]="15">
         <ng-template pTemplate="caption">
           <div class="ui-g-12">
             <h3 style="font-weight:bold;color: rgb(22, 92, 124);">
               LIST OF USERS
             </h3>
             <hr style="background-color:rgb(22, 92, 124);height:3px;" />
-        </div>
+          </div>
           <div style="text-align: right">
             <i style="margin:4px 4px 0 0"></i>
-            <input
-              type="text"
+            <input type="text"
               pInputText
               size="50"
               placeholder="Filter Here"
               (input)="data.filterGlobal($event.target.value, 'contains')"
-              style="width:30%;height: 35px;"
-            />
+              style="width:30%;height: 35px;" />
           </div>
         </ng-template>
-        <ng-template pTemplate="header" let-columns>
+        <ng-template pTemplate="header"
+          let-columns>
           <tr>
-            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            <th *ngFor="let col of columns"
+              [pSortableColumn]="col.field">
               {{ col.header }}
               <p-sortIcon [field]="col.field"></p-sortIcon>
             </th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <ng-template pTemplate="body"
+          let-rowData
+          let-columns="columns">
           <tr [pSelectableRow]="rowData">
             <td *ngFor="let col of columns">
               {{ rowData[col.field] }}
@@ -80,28 +77,25 @@
         </ng-template>
       </p-table>
 
-      <p-dialog
-        header=""
+      <p-dialog header=""
         [(visible)]="displayDialog"
         [responsive]="true"
         showEffect="fade"
         [modal]="true"
-        [style]="{ width: '540px' }"
-      >
+        [style]="{ width: '540px' }">
         <h2 style="color: rgb(22, 92, 124); font-weight: bold">Edit User</h2>
-        <div class="ui-g ui-fluid" *ngIf="car">
+        <div class="ui-g ui-fluid"
+          *ngIf="car">
           <div class="ui-g-12">
             <div class="ui-g-4">
               <label style="font-weight: bold;">Name &nbsp;</label>
             </div>
             <div class="ui-g-8">
-              <input
-                style="height: 35px;width: 100%"
+              <input style="height: 35px;width: 100%"
                 pInputText
                 id="vin"
                 name="name"
-                [(ngModel)]="userObj.name"
-              />
+                [(ngModel)]="userObj.name" />
             </div>
           </div>
           <div class="ui-g-12">
@@ -109,13 +103,11 @@
               <label style="font-weight: bold;">Email &nbsp;</label>
             </div>
             <div class="ui-g-8">
-              <input
-                style="height: 35px;width: 100%"
+              <input style="height: 35px;width: 100%"
                 pInputText
                 id="year"
                 name="email"
-                [(ngModel)]="userObj.email"
-              />
+                [(ngModel)]="userObj.email" />
             </div>
           </div>
           <div class="ui-g-12">
@@ -123,13 +115,11 @@
               <label style="font-weight: bold;">Password &nbsp;</label>
             </div>
             <div class="ui-g-8">
-              <input
-                style="height: 35px;width: 100%"
+              <input style="height: 35px;width: 100%"
                 pInputText
                 id="brand"
                 name="password"
-                [(ngModel)]="userObj.password"
-              />
+                [(ngModel)]="userObj.password" />
             </div>
           </div>
           <div class="ui-g-12">
@@ -138,35 +128,27 @@
             </div>
 
             <div class="ui-g-8">
-              <p-dropdown
-                [options]="usertypes"
+              <p-dropdown [options]="usertypes"
                 required
                 name="userType"
                 [(ngModel)]="userObj.userType"
                 [style]="{ width: '300px' }"
-                placeholder="Select user type"
-              >
+                placeholder="Select user type">
               </p-dropdown>
             </div>
           </div>
         </div>
         <p-footer>
           <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button
-              type="button"
+            <button type="button"
               pButton
               (click)="deleteUser()"
               label="Delete"
-              [disabled]="currentUserEmail==Rowemail"
-            
-              
-            ></button>
-            <button
-              type="button"
+              [disabled]="currentUserEmail==Rowemail"></button>
+            <button type="button"
               pButton
               (click)="updateUsers()"
-              label="Save"
-            ></button>
+              label="Save"></button>
           </div>
         </p-footer>
       </p-dialog>
@@ -176,15 +158,16 @@
 <p-toast></p-toast>
 
 <div *ngIf="userTypeCurrent != 'ADMIN'">
-    <p-card header="" [style]="{ width: '60%',
+  <p-card header=""
+    [style]="{ width: '60%',
 'margin-left':'20%' }">
-        <div class="ui-g">
-         <div class="ui-lg-6 ui-lg-offset-3  ui-md-10 ui-md-offset-2 ui-sm-12">
-                <i class="pi pi-times-circle" style="font-size:2em;color: red"><b style="font-family: Arial;color: rgb(22, 92, 124)">Error : You're not Admin</b></i>
-         </div> 
-        
-        </div>
-    </p-card>
-</div>
+    <div class="ui-g">
+      <div class="ui-lg-6 ui-lg-offset-3  ui-md-10 ui-md-offset-2 ui-sm-12">
+        <i class="pi pi-times-circle"
+          style="font-size:2em;color: red"><b style="font-family: Arial;color: rgb(22, 92, 124)">Error : You're not
+            Admin</b></i>
+      </div>
 
- 
+    </div>
+  </p-card>
+</div>
